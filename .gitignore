@@ -1,4 +1,4 @@
-temp_download
-logs
+temp_download/
+logs/
 geckodriver.exe
 geckodriver.log
