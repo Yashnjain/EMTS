@@ -1,0 +1,94 @@
+2023-05-15 12:34:20,474:WARNING:root:info added
+2023-05-15 12:34:29,431:INFO:root:Loading Browser
+2023-05-15 12:34:36,022:INFO:root:Driver Loaded now logging into website
+2023-05-15 12:34:46,807:INFO:root:Login Successfull, now getting data from website
+2023-05-15 12:39:51,562:WARNING:root:info added
+2023-05-15 12:39:56,755:INFO:root:Loading Browser
+2023-05-15 12:40:03,132:INFO:root:Driver Loaded now logging into website
+2023-05-15 12:40:13,769:INFO:root:Login Successfull, now getting data from website
+2023-05-15 12:44:40,823:WARNING:root:info added
+2023-05-15 12:44:45,616:INFO:root:Loading Browser
+2023-05-15 12:44:51,834:INFO:root:Driver Loaded now logging into website
+2023-05-15 12:45:02,075:INFO:root:Login Successfull, now getting data from website
+2023-05-15 12:45:21,850:INFO:root:downloading required file
+2023-05-15 12:47:05,589:WARNING:root:info added
+2023-05-15 12:47:15,404:INFO:root:Loading Browser
+2023-05-15 12:47:22,055:INFO:root:Driver Loaded now logging into website
+2023-05-15 12:47:31,272:INFO:root:Login Successfull, now getting data from website
+2023-05-15 12:47:55,120:INFO:root:downloading required file
+2023-05-15 12:57:42,243:WARNING:root:info added
+2023-05-15 12:57:46,765:INFO:root:Loading Browser
+2023-05-15 12:57:52,928:INFO:root:Driver Loaded now logging into website
+2023-05-15 12:58:15,591:INFO:root:Login Successfull, now getting data from website
+2023-05-15 12:58:57,104:INFO:root:downloading required file
+2023-05-15 13:00:32,564:INFO:root:Download started waiting for it to complete
+2023-05-15 13:21:30,786:WARNING:root:info added
+2023-05-15 13:21:39,916:INFO:root:Loading Browser
+2023-05-15 13:21:46,204:INFO:root:Driver Loaded now logging into website
+2023-05-15 13:21:56,797:INFO:root:Login Successfull, now getting data from website
+2023-05-15 13:22:10,083:INFO:root:downloading required file
+2023-05-15 13:26:16,389:WARNING:root:info added
+2023-05-15 13:26:23,969:INFO:root:Loading Browser
+2023-05-15 13:26:30,604:INFO:root:Driver Loaded now logging into website
+2023-05-15 13:26:41,366:INFO:root:Login Successfull, now getting data from website
+2023-05-15 13:26:59,098:INFO:root:downloading required file
+2023-05-15 13:26:59,098:INFO:root:Download started waiting for it to complete
+2023-05-15 17:25:59,690:WARNING:root:info added
+2023-05-15 17:26:10,875:INFO:root:Loading Browser
+2023-05-15 17:26:31,155:INFO:root:Driver Loaded now logging into website
+2023-05-15 17:26:40,544:INFO:root:Login Successfull, now getting data from website
+2023-05-15 17:27:12,060:INFO:root:downloading required file
+2023-05-15 17:27:12,060:INFO:root:Download started waiting for it to complete
+2023-05-15 17:27:31,047:INFO:root:Download started waiting for it to complete
+2023-05-15 18:17:43,353:WARNING:root:info added
+2023-05-15 18:18:14,631:INFO:root:Loading Browser
+2023-05-15 18:18:27,731:INFO:root:Driver Loaded now logging into website
+2023-05-15 18:18:48,136:INFO:root:Login Successfull, now getting data from website
+2023-05-15 18:21:18,747:INFO:root:downloading required file
+2023-05-15 18:21:18,747:INFO:root:Download started waiting for it to complete
+2023-05-15 18:21:35,569:INFO:root:Download started waiting for it to complete
+2023-05-15 18:25:52,003:WARNING:root:info added
+2023-05-15 18:25:56,299:INFO:root:Loading Browser
+2023-05-15 18:26:02,129:INFO:root:Driver Loaded now logging into website
+2023-05-15 18:26:14,688:INFO:root:Login Successfull, now getting data from website
+2023-05-15 18:26:36,729:INFO:root:downloading required file
+2023-05-15 18:29:47,496:WARNING:root:info added
+2023-05-15 18:29:52,194:INFO:root:Loading Browser
+2023-05-15 18:29:58,678:INFO:root:Driver Loaded now logging into website
+2023-05-15 18:30:09,053:INFO:root:Login Successfull, now getting data from website
+2023-05-15 18:30:21,980:INFO:root:downloading required file
+2023-05-15 18:53:53,753:WARNING:root:info added
+2023-05-15 18:53:58,608:INFO:root:Loading Browser
+2023-05-15 18:54:05,482:INFO:root:Driver Loaded now logging into website
+2023-05-15 18:54:16,514:INFO:root:Login Successfull, now getting data from website
+2023-05-15 18:54:32,812:INFO:root:downloading required file
+2023-05-15 18:56:25,148:WARNING:root:info added
+2023-05-15 18:56:30,036:INFO:root:Loading Browser
+2023-05-15 18:56:36,040:INFO:root:Driver Loaded now logging into website
+2023-05-15 18:56:44,940:INFO:root:Login Successfull, now getting data from website
+2023-05-15 18:56:57,099:INFO:root:downloading required file
+2023-05-15 18:58:53,845:INFO:root:Download started waiting for it to complete
+2023-05-15 19:43:49,535:WARNING:root:info added
+2023-05-15 19:43:53,486:INFO:root:Loading Browser
+2023-05-15 19:43:59,907:INFO:root:Driver Loaded now logging into website
+2023-05-15 19:44:11,110:INFO:root:Login Successfull, now getting data from website
+2023-05-15 19:44:51,303:INFO:root:downloading required file
+2023-05-15 19:45:13,448:INFO:root:Download started waiting for it to complete
+2023-05-15 19:46:29,312:INFO:root:Download started waiting for it to complete
+2023-05-15 19:49:39,111:INFO:root:Download started waiting for it to complete
+2023-05-15 20:35:16,704:WARNING:root:info added
+2023-05-15 20:35:23,388:INFO:root:Loading Browser
+2023-05-15 20:35:29,472:INFO:root:Driver Loaded now logging into website
+2023-05-15 20:35:38,161:INFO:root:Login Successfull, now getting data from website
+2023-05-15 20:35:54,042:INFO:root:downloading required file
+2023-05-15 20:39:38,072:WARNING:root:info added
+2023-05-15 20:39:42,973:INFO:root:Loading Browser
+2023-05-15 20:39:49,065:INFO:root:Driver Loaded now logging into website
+2023-05-15 20:39:58,702:INFO:root:Login Successfull, now getting data from website
+2023-05-15 20:40:22,970:INFO:root:downloading required file
+2023-05-15 20:41:56,872:WARNING:root:info added
+2023-05-15 20:42:00,635:INFO:root:Loading Browser
+2023-05-15 20:42:06,644:INFO:root:Driver Loaded now logging into website
+2023-05-15 20:42:15,758:INFO:root:Login Successfull, now getting data from website
+2023-05-15 20:44:02,282:INFO:root:downloading required file
+2023-05-15 20:45:17,351:INFO:root:Download started waiting for it to complete

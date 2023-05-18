@@ -1,0 +1,12 @@
+2023-05-18 13:16:20,296:WARNING:root:info added
+2023-05-18 13:16:20,884:INFO:root:Loading Browser
+2023-05-18 13:16:37,181:INFO:root:Driver Loaded now logging into website
+2023-05-18 13:17:06,390:INFO:root:Login Successfull, now getting data from website
+2023-05-18 13:17:23,983:INFO:root:Download started waiting for it to complete for pendingtrades
+2023-05-18 13:18:52,091:INFO:root:Download started waiting for it to complete for pending trade details
+2023-05-18 13:19:16,912:INFO:root:Download started waiting for it to complete Cancelled Trades
+2023-05-18 13:19:28,324:INFO:root:Download started waiting for it to complete completed Trades
+2023-05-18 13:20:03,587:INFO:root:Download started waiting for it to complete Transaction status
+2023-05-18 13:20:33,469:INFO:root:Download started waiting for it to complete Tansaction History
+2023-05-18 13:20:44,910:INFO:root:Download started waiting for it to complete Expired trades
+2023-05-18 13:20:55,204:INFO:root:Download started waiting for it to complete for Rin holdings

@@ -1,0 +1,5 @@
+2023-05-10 18:02:24,502:WARNING:root:info added
+2023-05-10 18:02:41,436:INFO:root:Loading Browser
+2023-05-10 18:02:48,429:INFO:root:Driver Loaded now logging into website
+2023-05-10 18:02:59,109:INFO:root:Login Successfull, now getting data from website
+2023-05-10 18:03:53,358:INFO:root:downloading required file

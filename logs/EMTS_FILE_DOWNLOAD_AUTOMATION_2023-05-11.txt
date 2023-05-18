@@ -1,0 +1,63 @@
+2023-05-11 18:19:58,440:WARNING:root:info added
+2023-05-11 18:20:02,682:INFO:root:Loading Browser
+2023-05-11 18:20:08,681:INFO:root:Driver Loaded now logging into website
+2023-05-11 18:20:20,503:INFO:root:Login Successfull, now getting data from website
+2023-05-11 18:28:11,134:WARNING:root:info added
+2023-05-11 18:28:16,684:INFO:root:Loading Browser
+2023-05-11 18:28:23,088:INFO:root:Driver Loaded now logging into website
+2023-05-11 18:28:33,680:INFO:root:Login Successfull, now getting data from website
+2023-05-11 18:29:07,455:INFO:root:downloading required file
+2023-05-11 18:29:57,536:WARNING:root:info added
+2023-05-11 18:31:00,565:INFO:root:Loading Browser
+2023-05-11 18:31:06,743:INFO:root:Driver Loaded now logging into website
+2023-05-11 18:31:16,678:INFO:root:Login Successfull, now getting data from website
+2023-05-11 19:11:26,760:WARNING:root:info added
+2023-05-11 19:11:35,297:INFO:root:Loading Browser
+2023-05-11 19:33:55,554:WARNING:root:info added
+2023-05-11 19:34:05,058:INFO:root:Loading Browser
+2023-05-11 19:34:11,420:INFO:root:Driver Loaded now logging into website
+2023-05-11 19:34:23,371:INFO:root:Login Successfull, now getting data from website
+2023-05-11 19:35:18,323:INFO:root:downloading required file
+2023-05-11 19:36:04,967:WARNING:root:info added
+2023-05-11 19:36:11,988:INFO:root:Loading Browser
+2023-05-11 19:36:18,384:INFO:root:Driver Loaded now logging into website
+2023-05-11 19:36:27,249:INFO:root:Login Successfull, now getting data from website
+2023-05-11 19:36:56,176:INFO:root:downloading required file
+2023-05-11 19:39:17,206:WARNING:root:info added
+2023-05-11 19:41:06,910:INFO:root:Loading Browser
+2023-05-11 19:41:13,437:INFO:root:Driver Loaded now logging into website
+2023-05-11 19:41:24,112:INFO:root:Login Successfull, now getting data from website
+2023-05-11 19:41:58,179:INFO:root:downloading required file
+2023-05-11 19:45:14,295:WARNING:root:info added
+2023-05-11 19:45:25,169:INFO:root:Loading Browser
+2023-05-11 19:45:31,641:INFO:root:Driver Loaded now logging into website
+2023-05-11 19:45:42,069:INFO:root:Login Successfull, now getting data from website
+2023-05-11 19:47:19,848:INFO:root:downloading required file
+2023-05-11 20:36:21,049:WARNING:root:info added
+2023-05-11 20:36:25,651:INFO:root:Loading Browser
+2023-05-11 20:36:32,085:INFO:root:Driver Loaded now logging into website
+2023-05-11 20:36:42,384:INFO:root:Login Successfull, now getting data from website
+2023-05-11 20:37:07,546:INFO:root:downloading required file
+2023-05-11 20:39:40,744:WARNING:root:info added
+2023-05-11 20:39:50,552:INFO:root:Loading Browser
+2023-05-11 20:39:56,824:INFO:root:Driver Loaded now logging into website
+2023-05-11 20:40:06,719:INFO:root:Login Successfull, now getting data from website
+2023-05-11 20:40:52,767:INFO:root:downloading required file
+2023-05-11 20:52:46,245:WARNING:root:info added
+2023-05-11 20:53:01,461:INFO:root:Loading Browser
+2023-05-11 20:53:22,054:INFO:root:Driver Loaded now logging into website
+2023-05-11 20:53:32,083:INFO:root:Login Successfull, now getting data from website
+2023-05-11 20:54:16,901:INFO:root:downloading required file
+2023-05-11 20:54:51,545:INFO:root:Download started waiting for it to complete
+2023-05-11 20:54:51,545:INFO:root:CLosing Driver
+2023-05-11 20:55:34,534:WARNING:root:info added
+2023-05-11 20:55:42,513:INFO:root:Loading Browser
+2023-05-11 20:55:50,806:INFO:root:Driver Loaded now logging into website
+2023-05-11 20:56:00,852:INFO:root:Login Successfull, now getting data from website
+2023-05-11 20:56:30,327:INFO:root:downloading required file
+2023-05-11 20:57:07,048:INFO:root:Download started waiting for it to complete
+2023-05-11 20:57:07,048:INFO:root:CLosing Driver
+2023-05-11 20:58:17,126:WARNING:root:info added
+2023-05-11 20:58:24,227:INFO:root:Loading Browser
+2023-05-11 20:58:31,341:INFO:root:Driver Loaded now logging into website
+2023-05-11 20:58:42,453:INFO:root:Login Successfull, now getting data from website

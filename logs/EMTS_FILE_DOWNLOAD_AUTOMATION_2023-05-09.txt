@@ -1,0 +1,13 @@
+2023-05-09 17:06:05,592:WARNING:root:info added
+2023-05-09 17:10:46,144:WARNING:root:info added
+2023-05-09 17:11:22,183:INFO:root:Loading Browser
+2023-05-09 17:11:29,437:INFO:root:Driver Loaded now logging into website
+2023-05-09 17:11:40,846:INFO:root:Login Successfull, now getting data from website
+2023-05-09 17:12:22,011:INFO:root:downloading required file
+2023-05-09 17:13:01,835:INFO:root:Download started waiting for it to complete
+2023-05-09 17:13:01,835:INFO:root:CLosing Driver
+2023-05-09 17:34:21,874:WARNING:root:info added
+2023-05-09 17:34:28,568:INFO:root:Loading Browser
+2023-05-09 17:34:41,072:INFO:root:Driver Loaded now logging into website
+2023-05-09 17:34:51,408:INFO:root:Login Successfull, now getting data from website
+2023-05-09 17:35:17,950:INFO:root:downloading required file
