@@ -83,11 +83,13 @@ def file_extraction(time_stamp,zipname,destination_path):
         if filename.endswith('.csv') and not filename.endswith("AM.csv") and not filename.endswith("PM.csv"):
             filename_without_csv = filename.split('.csv')[0]
             old_filename = os.path.join(extract_dir,filename)
-            new_name = os.path.join(extract_dir,filename_without_csv +'_' + time_stamp +'.xlsx')
-            os.rename(old_filename, new_name)
-            shutil.copy(new_name,destination_path)
+            file = os.path.join(extract_dir,filename_without_csv +'_' + time_stamp + '.xlsx')
+            df = pd.read_csv(old_filename)
+            os.remove(old_filename)
+            df.to_excel(file)
+            shutil.copy(file,destination_path)
     os.remove(zip_file)
-    os.remove(new_name)
+    os.remove(file)
 
 def loc_change_for_zip(time_stamp,zipname,destination_path):
     for filename in os.listdir(download_path):
@@ -323,7 +325,7 @@ if __name__ == "__main__":
     try: 
         destination_path ="J:\RINS\RINS Recon\\"
         logging.info("Loading Browser")
-        bu_alerts.bulog(process_name=JOBNAME,status='Started', log=logfile,process_owner='Pakhi') 
+        bu_alerts.bulog(process_name=JOBNAME,status='Started', log=logfile,process_owner='Pakhi',table_name=" ") 
         driver = firefoxDriverLoader() 
         logging.info("Driver Loaded now logging into website") 
         login(driver) 
@@ -347,7 +349,7 @@ if __name__ == "__main__":
         download_file_RIN_Holdings(driver,destination_path)
         logging.info("CLosing Driver")
         driver.quit() 
-        bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi') 
+        bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
         logging.info("Driver quit")
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
@@ -356,8 +358,8 @@ if __name__ == "__main__":
                     attachment_location = logfile
                 )
     except Exception as e:
-        logging.info(f'Error occurred in ERCOT_RUC_COMMITMENT. {e}')
-        bu_alerts.bulog(process_name=JOBNAME,status='failed',log=logfile,process_owner='Pakhi')
+        logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
+        bu_alerts.bulog(process_name=JOBNAME,status='failed',log=logfile,process_owner='Pakhi',table_name=" ")
         bu_alerts.send_mail(
                             receiver_email= receiver_email,
                             mail_subject=f"JOB FAILED - EMTS_DAILY_FILE_AUTOMATION",
