@@ -1946,3 +1946,123 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684757558965	geckodriver	INFO	Listening on 127.0.0.1:63431
+1684757562054	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "63432" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilejI0xKB"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684757562785	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684757562792	Marionette	INFO	Listening on port 63439
+WebDriver BiDi listening on ws://127.0.0.1:63432
+1684757562981	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63432/devtools/browser/8f0e3e6b-60ef-4bcd-b248-62aef8a7eb1f
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684758361490	geckodriver	INFO	Listening on 127.0.0.1:63947
+1684758364561	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "63948" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofile6LKdVh"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684758364922	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684758364927	Marionette	INFO	Listening on port 63954
+WebDriver BiDi listening on ws://127.0.0.1:63948
+1684758365228	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63948/devtools/browser/76423ec9-ae9e-450a-b4c5-0249fa5e397d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684758587935	geckodriver	INFO	Listening on 127.0.0.1:64091
+1684758591012	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64092" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilehJT2Pw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684758591377	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684758591382	Marionette	INFO	Listening on port 64098
+WebDriver BiDi listening on ws://127.0.0.1:64092
+1684758591677	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:64092/devtools/browser/82a0fa6d-6730-427b-80f4-4a3b3557a5c2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684758851825	geckodriver	INFO	Listening on 127.0.0.1:64267
+1684758854917	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64268" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilelIvUTd"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684758855279	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684758855283	Marionette	INFO	Listening on port 64273
+WebDriver BiDi listening on ws://127.0.0.1:64268
+1684758855583	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:64268/devtools/browser/777801d9-f314-44e8-9061-a77e47189fca
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684759048946	geckodriver	INFO	Listening on 127.0.0.1:64409
+1684759052011	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64410" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileCK9Vn9"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684759052367	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684759052373	Marionette	INFO	Listening on port 64416
+WebDriver BiDi listening on ws://127.0.0.1:64410
+1684759052684	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:64410/devtools/browser/77c800f6-692b-45d4-8c34-0db5ad7db1f5
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684759375295	geckodriver	INFO	Listening on 127.0.0.1:64594
+1684759378390	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64595" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilelwpFRS"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684759378743	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684759378748	Marionette	INFO	Listening on port 64600
+WebDriver BiDi listening on ws://127.0.0.1:64595
+1684759379044	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:64595/devtools/browser/3f46762c-44b2-44fd-860e-f3beb5d00bc9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684759729658	geckodriver	INFO	Listening on 127.0.0.1:64796
+1684759732738	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64797" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileadsGm5"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684759733098	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684759733104	Marionette	INFO	Listening on port 64805
+WebDriver BiDi listening on ws://127.0.0.1:64797
+1684759733405	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:64797/devtools/browser/38039ced-c23b-40c7-850a-f2f0c1287c22
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684760738523	geckodriver	INFO	Listening on 127.0.0.1:65183
+1684760741589	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "65184" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileneWmTP"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684760741959	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684760741964	Marionette	INFO	Listening on port 65190
+WebDriver BiDi listening on ws://127.0.0.1:65184
+1684760742217	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:65184/devtools/browser/34e53ac6-c1d6-42c8-bed3-b99db055d2ba
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
