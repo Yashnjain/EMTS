@@ -16,7 +16,7 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-receiver_email = "pakhi.laad@biourja.com" 
+receiver_email = "indiapowerit@biourja.com,rahul.gupta@biourja.com,deepesh.gupta@biourja.com,itdevsupport@biourja.com" 
 download_path = os.getcwd()+"\\temp_download\\" 
 destination_path ="J:\RINS\RINS Recon\\"
 USERID = "biorins13" 
@@ -48,7 +48,7 @@ def firefoxDriverLoader():
         profile.set_preference('browser.helperApps.neverAsk.saveToDisk', ','.join(mime_types)) 
         profile.set_preference('browser.helperApps.neverAsk.openFile',','.join(mime_types)) 
         driver = webdriver.Firefox(executable_path=os.getcwd()+'\\geckodriver.exe', firefox_binary=binary,firefox_profile = profile)  
-        # driver = webdriver.Firefox(executable_path=f"{os.getcwd()}\\geckodriver.exe") 
+     
         return driver 
     except Exception as e: 
         raise e 
@@ -86,7 +86,7 @@ def file_extraction(time_stamp,zipname,destination_path):
             file = os.path.join(extract_dir,filename_without_csv +'_' + time_stamp + '.xlsx')
             df = pd.read_csv(old_filename)
             os.remove(old_filename)
-            df.to_excel(file)
+            df.to_excel(file,index=False)
             shutil.copy(file,destination_path)
     os.remove(zip_file)
     os.remove(file)
@@ -153,7 +153,7 @@ def download_file_pendingTradesDetails(driver,destination_path):
         rows = table.findAll(lambda tag: tag.name=='tr')
         table_row = rows[1].findAll(lambda tag: tag.name =='td')
         li = table_row[1].text.split(" ")
-        time_stamp = li[0] +"_"+ li[1] + li[2]
+        time_stamp = li[1] + li[2]
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "Pending Trade Details.zip"
@@ -206,7 +206,7 @@ def download_file_CompletedTrades(driver,destination_path):
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.even:nth-child(2) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time.sleep(1)
         table_row = rows[2].findAll(lambda tag: tag.name =='td')
-        li = table_row[1].text.split(" ")
+        li = table_row[2].text.split(" ")
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")  
         time_stamp = time_stamp.replace("/",".")

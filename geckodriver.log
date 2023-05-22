@@ -1855,3 +1855,94 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
 1684412000877	Marionette	INFO	Stopped listening on port 65486
 Dynamically enable window occlusion 1
+1684479340241	geckodriver	INFO	Listening on 127.0.0.1:59653
+1684479343354	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "59654" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilepzCjLb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684479343869	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684479343875	Marionette	INFO	Listening on port 59660
+WebDriver BiDi listening on ws://127.0.0.1:59654
+1684479344503	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilepzCjLb\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:59654/devtools/browser/39f15656-2184-48f3-9fce-a200d8694282
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+1684479556485	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:424:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684479604099	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:424:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+1684479609906	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:424:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+1684479616715	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:424:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+1684480752238	geckodriver	INFO	Listening on 127.0.0.1:60518
+1684480755304	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "60519" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileQ7sziF"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684480755965	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684480755974	Marionette	INFO	Listening on port 60525
+WebDriver BiDi listening on ws://127.0.0.1:60519
+1684480756574	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60519/devtools/browser/7561251f-0b1c-4d8b-aec4-218bdc679bd2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684480876809	Marionette	INFO	Stopped listening on port 60525
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24964, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+Dynamically enable window occlusion 1
+1684738181866	geckodriver	INFO	Listening on 127.0.0.1:54943
+1684738184967	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "54944" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofiletQKqCG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684738185944	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684738185951	Marionette	INFO	Listening on port 54956
+WebDriver BiDi listening on ws://127.0.0.1:54944
+1684738187403	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:54944/devtools/browser/0247fce8-bcd0-402c-9c89-56a730b33af1
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1684739215250	geckodriver	INFO	Listening on 127.0.0.1:55487
+1684739218318	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "55488" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileLfAjIK"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1684739218703	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1684739218708	Marionette	INFO	Listening on port 55498
+WebDriver BiDi listening on ws://127.0.0.1:55488
+1684739218968	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:55488/devtools/browser/b814e8a9-bf89-4f54-9c8d-1623c8aebe89
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
