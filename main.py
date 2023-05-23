@@ -206,7 +206,7 @@ def download_file_CompletedTrades(driver,destination_path):
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.even:nth-child(2) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time.sleep(1)
         table_row = rows[2].findAll(lambda tag: tag.name =='td')
-        li = table_row[2].text.split(" ")
+        li = table_row[1].text.split(" ")
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")  
         time_stamp = time_stamp.replace("/",".")
