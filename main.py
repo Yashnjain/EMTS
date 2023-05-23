@@ -385,6 +385,7 @@ if __name__ == "__main__":
                     attachment_location = logfile
                 )
     except Exception as e:
+        driver.quit() 
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         bu_alerts.bulog(process_name=JOBNAME,status='failed',log=logfile,process_owner='Pakhi',table_name=" ")
         bu_alerts.send_mail(
