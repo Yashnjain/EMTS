@@ -21,7 +21,7 @@ download_path = os.getcwd()+"\\download\\"
 destination_path ="J:\RINS\RINS Recon\\"
 USERID = "biorins13" 
 PASSWORD = "May2023@@" 
-JOBNAME = "EMTS_DAILY_FILE_AUTOMATION" 
+JOBNAME = "EMTS_MONTHLY_FILE_AUTOMATION" 
 URL ='https://cdx.epa.gov/CDX/Login' 
 FIREFOX_PATH = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
 today = date.today()
@@ -247,7 +247,7 @@ if __name__ == "__main__":
         logging.info("Driver quit")
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
-                    mail_subject ='JOB SUCCESS - EMTS_DAILY_FILE_AUTOMATION',
+                    mail_subject ='JOB SUCCESS - EMTS_MONTHLY_FILE_AUTOMATION',
                     mail_body = 'EMTS_DAILY_FILE_AUTOMATION completed successfully, Attached logs',
                     attachment_location = logfile
                 )
@@ -256,7 +256,7 @@ if __name__ == "__main__":
         bu_alerts.bulog(process_name=JOBNAME,status='failed',log=logfile,process_owner='Pakhi',table_name=" ")
         bu_alerts.send_mail(
                             receiver_email= receiver_email,
-                            mail_subject=f"JOB FAILED - EMTS_DAILY_FILE_AUTOMATION",
+                            mail_subject=f"JOB FAILED - EMTS_MONTHLY_FILE_AUTOMATION",
                             mail_body=f"{e}",
                             attachment_location = logfile)
    

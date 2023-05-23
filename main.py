@@ -227,9 +227,11 @@ def download_file_TransactionStaus(driver,destination_path):
         action = ActionChains(driver) 
         driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=430&subscriptionId=&abt=false')
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
+        logging.info("before time.sleep")
         time.sleep(1)
         soup = BeautifulSoup(driver.page_source, 'lxml')
         table = soup.find(lambda tag: tag.name=='table')
+        logging.info("fetching first ts for transaction history")
         rows = table.findAll(lambda tag: tag.name=='tr')
         table_row = rows[1].findAll(lambda tag: tag.name =='td')
         li = table_row[1].text.split(" ")
@@ -246,6 +248,7 @@ def download_file_TransactionStaus(driver,destination_path):
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.even:nth-child(2) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time.sleep(1)
         table_row = rows[2].findAll(lambda tag: tag.name =='td')
+        logging.info("fetching second ts for transaction history")
         li = table_row[1].text.split(" ")
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")  
@@ -254,6 +257,7 @@ def download_file_TransactionStaus(driver,destination_path):
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(3) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time.sleep(1) 
         table_row = rows[3].findAll(lambda tag: tag.name =='td')
+        logging.info("fetching third ts for transaction history")
         li = table_row[1].text.split(" ")
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")  
