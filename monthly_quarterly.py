@@ -16,7 +16,7 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-receiver_email = "pakhi.laad@biourja.com" 
+receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com,deepesh.gupta@biourja.com,rahul.gupta@biourja.com"
 download_path = os.getcwd()+"\\download\\" 
 destination_path ="J:\RINS\RINS Recon\\"
 USERID = "biorins13" 
@@ -194,7 +194,7 @@ def download_file_RFS2EMTSActivityReportAssignedRINS(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "RFS2 EMTS Activity Report (Assigned RINS).zip"
-        destination_path = destination_path + "EMTS QUARTERLY Reports\\" + str(current_year) + "\\" + "Test"
+        destination_path = destination_path + "Activity Report (Assigned RINS)\\" + str(current_year) + "\\" + "Test"
         file_extraction_pdf(time_stamp,zipname,destination_path)
 
     except Exception as e: 
@@ -215,7 +215,7 @@ def download_file_RFS2EMTSActivityReportSeparatedRINS(driver,destination_path):
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "RFS2 EMTS Activity Report (Separated RINS).zip"
-        destination_path = destination_path + "EMTS QUARTERLY Reports\\" + str(current_year) + "\\" + "Test"
+        destination_path = destination_path + "Activity Report (Separated RINS)" + str(current_year) + "\\" + "Test"
         file_extraction_pdf(time_stamp,zipname,destination_path)
 
     except Exception as e: 

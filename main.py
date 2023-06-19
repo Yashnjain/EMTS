@@ -16,7 +16,7 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com" 
+receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com,deepesh.gupta@biourja.com,rahul.gupta@biourja.com" 
 download_path = os.getcwd()+"\\temp_download\\" 
 destination_path ="J:\RINS\RINS Recon\\"
 USERID = "biorins13" 
