@@ -50,7 +50,7 @@ def firefoxDriverLoader():
         profile.set_preference('pdfjs.disabled', True) 
         profile.set_preference('browser.helperApps.neverAsk.saveToDisk', ','.join(mime_types)) 
         profile.set_preference('browser.helperApps.neverAsk.openFile',','.join(mime_types)) 
-        driver = webdriver.Firefox(executable_path=os.getcwd()+'\\geckodriver.exe', firefox_binary=binary,firefox_profile = profile)  
+        driver = webdriver.Firefox(executable_path=os.getcwd()+'\\renewables\\geckodriver.exe', firefox_binary=binary,firefox_profile = profile)  
         return driver 
     except Exception as e: 
         raise e 
