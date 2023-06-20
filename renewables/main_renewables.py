@@ -16,12 +16,12 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com,deepesh.gupta@biourja.com,rahul.gupta@biourja.com" 
-download_path = os.getcwd()+"\\temp_download\\" 
-destination_path ="J:\RINS\RINS Recon\\"
+receiver_email = "indiapowerit@biourja.com" 
+download_path = os.getcwd()+"\\renewables\\download_renewables\\" 
+destination_path ="J:\\RINS\\BioUrja Renewables\\EMTS REPORTS\\2023"
 USERID = "biorins13" 
 PASSWORD = "May2023@@" 
-JOBNAME = "EMTS_DAILY_FILE_AUTOMATION" 
+JOBNAME = "EMTS_DAILY_FILE_AUTOMATION_RENEWABLES" 
 URL ='https://cdx.epa.gov/CDX/Login' 
 FIREFOX_PATH = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
 today = date.today()
@@ -30,12 +30,15 @@ current_year = current_datetime.year
 current_month = current_datetime.strftime("%B")
 
 logfile = os.getcwd()+'\\logs\\' + JOBNAME+"_"+str(today)+'.txt' 
+if os.path.exists(logfile):
+            os.remove(logfile)
 logging.basicConfig( 
     level=logging.INFO, 
     force= True, 
     format='%(asctime)s:%(levelname)s:%(name)s:%(message)s',
     filename=logfile) 
 logging.warning('info added') 
+
 def firefoxDriverLoader(): 
     try: 
         mime_types=['application/pdf' ,'text/plain', 'application/vnd.ms-excel', 'test/csv', 'application/zip', 'application/csv', 'text/comma-separated-values','application/download','application/octet-stream' ,'binary/octet-stream' ,'application/binary' ,'application/x-unknown'] 
@@ -48,7 +51,6 @@ def firefoxDriverLoader():
         profile.set_preference('browser.helperApps.neverAsk.saveToDisk', ','.join(mime_types)) 
         profile.set_preference('browser.helperApps.neverAsk.openFile',','.join(mime_types)) 
         driver = webdriver.Firefox(executable_path=os.getcwd()+'\\geckodriver.exe', firefox_binary=binary,firefox_profile = profile)  
-     
         return driver 
     except Exception as e: 
         raise e 
@@ -68,7 +70,7 @@ def get_data(driver):
         action = ActionChains(driver) 
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"div.mycdx-row:nth-child(2) > div:nth-child(3) > a:nth-child(1)"))).click() 
         time.sleep(1) 
-        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#BIOURJA\ TRADING\ LLC"))).click() 
+        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#BioUrja\ Renewables\,\ LLC"))).click() 
         time.sleep(1) 
        
     except Exception as e: 
@@ -100,7 +102,6 @@ def loc_change_for_zip(time_stamp,zipname,destination_path):
         shutil.copy(new_name,destination_path)
     os.remove(new_name)
 
-    
 def download_file_pendingTrades(driver,destination_path): 
     try: 
         action = ActionChains(driver) 
@@ -115,7 +116,7 @@ def download_file_pendingTrades(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Pending Trades.zip"
-        destination_path = destination_path + "PendingTrades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Pending Trades" + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
         time_stamp = li[0]+'_'+li[1]+li[2]
@@ -157,16 +158,16 @@ def download_file_pendingTradesDetails(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "Pending Trade Details.zip"
-        destination_path = destination_path + "Pending Trade Details\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Pending Trade Details\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
     except Exception as e: 
         raise e
-
-def download_file_RIN_Holdings(driver,destination_path): 
+    
+def download_file_CancelledTrades(driver,destination_path): 
     try: 
         action = ActionChains(driver) 
-        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=20&subscriptionId=&abt=false')
-        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()    
+        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=370&subscriptionId=&abt=false')
+        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time.sleep(1)
         soup = BeautifulSoup(driver.page_source, 'lxml')
         table = soup.find(lambda tag: tag.name=='table')
@@ -175,13 +176,13 @@ def download_file_RIN_Holdings(driver,destination_path):
         li = table_row[1].text.split(" ")
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
-        zipname = "RIN Holdings.zip"
-        destination_path = destination_path + "RINHoldings\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
+        zipname = "Cancelled Trades.zip"
+        destination_path = destination_path + "\\Cancelled Trades\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         
     except Exception as e: 
         raise e
-    
+
 def download_file_CompletedTrades(driver,destination_path): 
     try: 
         action = ActionChains(driver) 
@@ -196,7 +197,7 @@ def download_file_CompletedTrades(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Completed Trades.zip"
-        destination_path = destination_path + "Completed Trades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Completed Trades\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time_stamp = li[0]+'_'+li[1]+li[2]
@@ -238,7 +239,7 @@ def download_file_TransactionStaus(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Transaction Status.zip"
-        destination_path = destination_path + "Transaction Status\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Transaction Status\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time_stamp = li[0]+'_'+li[1]+li[2]
@@ -280,7 +281,7 @@ def download_file_TransactionHistory(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Transaction History.zip"
-        destination_path = destination_path + "Transaction History\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Transaction History\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         
     except Exception as e: 
@@ -300,55 +301,14 @@ def download_file_ExpiredTrades(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Expired Trades.zip"
-        destination_path = destination_path + "Expired Trades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Expired Trades\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         
     except Exception as e: 
         raise e
     
-def download_file_CancelledTrades(driver,destination_path): 
-    try: 
-        action = ActionChains(driver) 
-        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=370&subscriptionId=&abt=false')
-        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
-        time.sleep(1)
-        soup = BeautifulSoup(driver.page_source, 'lxml')
-        table = soup.find(lambda tag: tag.name=='table')
-        rows = table.findAll(lambda tag: tag.name=='tr')
-        table_row = rows[1].findAll(lambda tag: tag.name =='td')
-        li = table_row[1].text.split(" ")
-        time_stamp = li[1]+li[2]
-        time_stamp = time_stamp.replace(":",".")
-        zipname = "Cancelled Trades.zip"
-        destination_path = destination_path + "CancelledTrades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
-        file_extraction(time_stamp,zipname,destination_path)
-        
-    except Exception as e: 
-        raise e
-    
-
-def download_file_RIN_Batches(driver,destination_path): 
-    try: 
-        action = ActionChains(driver) 
-        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=380&subscriptionId=&abt=false')
-        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
-        time.sleep(1)
-        soup = BeautifulSoup(driver.page_source, 'lxml')
-        table = soup.find(lambda tag: tag.name=='table')
-        rows = table.findAll(lambda tag: tag.name=='tr')
-        table_row = rows[1].findAll(lambda tag: tag.name =='td')
-        li = table_row[1].text.split(" ")
-        time_stamp = li[1]+li[2]
-        time_stamp = time_stamp.replace(":",".")
-        zipname = "RIN Batches.zip"
-        destination_path = destination_path + "RIN Batches\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
-        file_extraction(time_stamp,zipname,destination_path)
-        
-    except Exception as e: 
-        raise e
 if __name__ == "__main__": 
     try: 
-        destination_path ="J:\RINS\RINS Recon\\"
         logging.info("Loading Browser")
         bu_alerts.bulog(process_name=JOBNAME,status='Started', log=logfile,process_owner='Pakhi',table_name=" ") 
         driver = firefoxDriverLoader() 
@@ -370,10 +330,6 @@ if __name__ == "__main__":
         download_file_TransactionHistory(driver,destination_path)
         logging.info("Download started waiting for it to complete Expired trades")
         download_file_ExpiredTrades(driver,destination_path)
-        logging.info("Download started waiting for it to complete for Rin holdings")
-        download_file_RIN_Holdings(driver,destination_path)
-        logging.info("Download started waiting for it to complete for Rin Batches weekely file")
-        download_file_RIN_Batches(driver,destination_path)
         logging.info("CLosing Driver")
         driver.quit() 
         bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
