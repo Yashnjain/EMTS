@@ -336,16 +336,16 @@ if __name__ == "__main__":
         logging.info("Driver quit")
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
-                    mail_subject ='JOB SUCCESS - EMTS_DAILY_FILE_AUTOMATION',
-                    mail_body = 'EMTS_DAILY_FILE_AUTOMATION completed successfully, Attached logs',
+                    mail_subject ='JOB SUCCESS - EMTS_DAILY_FILE_AUTOMATION_RENEWABLES',
+                    mail_body = 'EMTS_DAILY_FILE_AUTOMATION_RENEWABLES completed successfully, Attached logs',
                     attachment_location = logfile
                 )
     except Exception as e:
         driver.quit() 
-        logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
+        logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION_RENEWABLES {e}')
         bu_alerts.bulog(process_name=JOBNAME,status='failed',log=logfile,process_owner='Pakhi',table_name=" ")
         bu_alerts.send_mail(
                             receiver_email= receiver_email,
-                            mail_subject=f"JOB FAILED - EMTS_DAILY_FILE_AUTOMATION",
+                            mail_subject=f"JOB FAILED - EMTS_DAILY_FILE_AUTOMATION_RENEWABLES",
                             mail_body=f"{e}",
                             attachment_location = logfile)
