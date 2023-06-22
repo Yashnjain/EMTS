@@ -17,8 +17,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com"
-download_path = os.getcwd()+"\\renewables\\download\\" 
-destination_path ="J:\RINS\BioUrja Renewables\EMTS REPORTS\2023"
+download_path = os.getcwd()+"\\renewables\\download_renewables\\" 
+destination_path ="J:\RINS\BioUrja Renewables\EMTS REPORTS\\2023"
 USERID = "biorins13" 
 PASSWORD = "May2023@@" 
 JOBNAME = "EMTS_MONTHLY_FILE_AUTOMATION_RENEWABLES" 
@@ -68,7 +68,7 @@ def get_data(driver):
         action = ActionChains(driver) 
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"div.mycdx-row:nth-child(2) > div:nth-child(3) > a:nth-child(1)"))).click() 
         time.sleep(1) 
-        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#BIOURJA\ TRADING\ LLC"))).click() 
+        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#BioUrja\ Renewables\,\ LLC"))).click() 
         time.sleep(1) 
        
     except Exception as e: 
@@ -161,7 +161,7 @@ def download_file_MonthlyRINHoldings(driver,destination_path):
 def download_file_MonthlyRINGeneration(driver,destination_path): 
     try: 
         action = ActionChains(driver) 
-        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=215&subscriptionId=&abt=false')
+        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=690&subscriptionId=&abt=false')
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time.sleep(1)
         soup = BeautifulSoup(driver.page_source, 'lxml')
@@ -171,8 +171,9 @@ def download_file_MonthlyRINGeneration(driver,destination_path):
         li = table_row[1].text.split(" ")
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
-        zipname = "RFS2 EMTS RIN Generation CSV_XML Report.zip"
-        destination_path = destination_path + "EMTS QUARTERLY Reports\\" + str(current_year) + "\\" + "Test"
+        time_stamp = time_stamp.replace("/",".")
+        zipname = "Monthly RIN Generation.zip"
+        destination_path = destination_path + "\\Monthly RIN Generation\\Test"
         file_extraction(time_stamp,zipname,destination_path)
 
     except Exception as e: 
@@ -194,7 +195,7 @@ def download_file_RFS2EMTSActivityReportAssignedRINS(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "RFS2 EMTS Activity Report (Assigned RINS).zip"
-        destination_path = destination_path + "Activity Report (Assigned RINS)\\" + str(current_year) + "\\" + "Test"
+        destination_path = destination_path + "\\EMTS Activity Report (Assigned RINS)\\Test"
         file_extraction_pdf(time_stamp,zipname,destination_path)
 
     except Exception as e: 
@@ -215,11 +216,55 @@ def download_file_RFS2EMTSActivityReportSeparatedRINS(driver,destination_path):
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "RFS2 EMTS Activity Report (Separated RINS).zip"
-        destination_path = destination_path + "Activity Report (Separated RINS)" + str(current_year) + "\\" + "Test"
+        destination_path = destination_path + "\\EMTS Activity Report (Separated RINS)\\Test"
         file_extraction_pdf(time_stamp,zipname,destination_path)
 
     except Exception as e: 
         raise e
+
+def download_file_RFS2EMTSRINGenerationCSV_XMLReport(driver,destination_path):
+    try:
+        action = ActionChains(driver) 
+        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=215&subscriptionId=&abt=false')
+        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
+        time.sleep(1)
+        soup = BeautifulSoup(driver.page_source, 'lxml')
+        table = soup.find(lambda tag: tag.name=='table')
+        rows = table.findAll(lambda tag: tag.name=='tr')
+        table_row = rows[1].findAll(lambda tag: tag.name =='td')
+        li = table_row[1].text.split(" ")
+        time_stamp = li[0]+'_'+li[1]+li[2]
+        time_stamp = time_stamp.replace(":",".")
+        time_stamp = time_stamp.replace("/",".")
+        zipname = "RFS2 EMTS RIN Generation CSV_XML Report.zip"
+        destination_path = destination_path + "\\RFS2 EMTS RIN Generation CSV_XML Report\\Test"
+        file_extraction(time_stamp,zipname,destination_path)
+
+    except Exception as e: 
+        raise e
+    
+def download_file_RFS2EMTSRINTransactionCSV_XMLReport(driver,destination_path):
+    try:
+        action = ActionChains(driver) 
+        driver.get('https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=225&subscriptionId=&abt=false')
+        WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
+        time.sleep(1)
+        soup = BeautifulSoup(driver.page_source, 'lxml')
+        table = soup.find(lambda tag: tag.name=='table')
+        rows = table.findAll(lambda tag: tag.name=='tr')
+        table_row = rows[1].findAll(lambda tag: tag.name =='td')
+        li = table_row[1].text.split(" ")
+        time_stamp = li[0]+'_'+li[1]+li[2]
+        time_stamp = time_stamp.replace(":",".")
+        time_stamp = time_stamp.replace("/",".")
+        zipname = "RFS2 EMTS RIN Transaction CSV_XML Report (Buy, Sell, Separate, Retire).zip"
+        destination_path = destination_path + "\\RFS2 EMTS RIN Transaction CSV_XML Report (Buy, Sell, Separate, Retire)\\Test"
+        file_extraction(time_stamp,zipname,destination_path)
+
+    except Exception as e: 
+        raise e
+    
+
     
 if __name__ == "__main__": 
     try: 
@@ -234,12 +279,16 @@ if __name__ == "__main__":
         download_file_MonthlyTransactionHistory(driver,destination_path) 
         logging.info("Download started waiting for it to complete for Monthly RIN Holdings")
         download_file_MonthlyRINHoldings(driver,destination_path)
-        logging.info("Download started waiting for it to complete Cancelled Trades")
+        logging.info("Download started waiting for it to complete Monthly RIN Generation")
         download_file_MonthlyRINGeneration(driver,destination_path)
-        logging.info("Download started waiting for it to complete completed Trades")
+        logging.info("Download started waiting for it to complete RFS2 EMTS Activity Report Assigned RINS")
         download_file_RFS2EMTSActivityReportAssignedRINS(driver,destination_path)
-        logging.info("Download started waiting for it to complete Transaction status")
+        logging.info("Download started waiting for it to complete RFS2 EMTS Activity Report Seperated RINS")
         download_file_RFS2EMTSActivityReportSeparatedRINS(driver,destination_path)
+        logging.info("Download started waiting for it to complete RFS2EMTSRINGenerationCSV/XMLReport")
+        download_file_RFS2EMTSRINGenerationCSV_XMLReport(driver,destination_path)
+        logging.info("Download started waiting for it to complete RFS2EMTSRINGenerationCSV/XMLReport")
+        download_file_RFS2EMTSRINTransactionCSV_XMLReport(driver,destination_path)
         logging.info("CLosing Driver")
         driver.quit() 
         bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
