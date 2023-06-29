@@ -1,4 +1,3 @@
-
 import logging 
 import os, sys ,zipfile
 import shutil
@@ -30,6 +29,13 @@ current_year = current_datetime.year
 current_month = current_datetime.strftime("%B")
 
 logfile = os.getcwd()+'\\logs\\' + JOBNAME+"_"+str(today)+'.txt' 
+if os.path.exists(logfile):
+    os.remove(logfile)
+files=os.listdir(download_path)
+# removing existing files 
+for file in files :
+    if os.path.isfile(download_path+'\\'+file):
+        os.remove(download_path+'\\'+file)
 logging.basicConfig( 
     level=logging.INFO, 
     force= True, 
@@ -88,8 +94,14 @@ def file_extraction(time_stamp,zipname,destination_path):
             os.remove(old_filename)
             df.to_excel(file,index=False)
             shutil.copy(file,destination_path)
+            fi = os.path.basename(file)
     os.remove(zip_file)
     os.remove(file)
+    if fi.startswith(('PendingTrades', 'CompletedTrades')) and fi.endswith('.xlsx'):
+        file_path = os.path.join(destination_path, fi)
+        excel_data = pd.read_excel(file_path)
+        excel_files.append(excel_data)
+
 
 def loc_change_for_zip(time_stamp,zipname,destination_path):
     for filename in os.listdir(download_path):
@@ -348,6 +360,7 @@ def download_file_RIN_Batches(driver,destination_path):
         raise e
 if __name__ == "__main__": 
     try: 
+        excel_files =[]
         destination_path ="J:\RINS\RINS Recon\\"
         logging.info("Loading Browser")
         bu_alerts.bulog(process_name=JOBNAME,status='Started', log=logfile,process_owner='Pakhi',table_name=" ") 
@@ -376,14 +389,19 @@ if __name__ == "__main__":
         download_file_RIN_Batches(driver,destination_path)
         logging.info("CLosing Driver")
         driver.quit() 
+        a = pd.DataFrame(excel_files[0]).to_excel('PendingTrade.xlsx',index=False)
+        b = pd.DataFrame(excel_files[1]).to_excel('CompletedTrade.xlsx',index=False)
         bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
         logging.info("Driver quit")
+        multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"]
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
                     mail_subject ='JOB SUCCESS - EMTS_DAILY_FILE_AUTOMATION',
                     mail_body = 'EMTS_DAILY_FILE_AUTOMATION completed successfully, Attached logs',
-                    attachment_location = logfile
+                    multiple_attachment_list=multiple_attachment_list
                 )
+        os.remove(f"{os.getcwd()}"+"\\PendingTrade.xlsx")
+        os.remove(f"{os.getcwd()}"+"\\CompletedTrade.xlsx")
     except Exception as e:
         driver.quit() 
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')

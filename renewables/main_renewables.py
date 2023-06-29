@@ -1,4 +1,3 @@
-
 import logging 
 import os, sys ,zipfile
 import shutil
@@ -17,7 +16,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 receiver_email = "indiapowerit@biourja.com" 
-download_path = os.getcwd()+"\\renewables\\download_renewables\\" 
+download_path = os.getcwd()+"\\temp_download_renewables\\" 
 destination_path ="J:\\RINS\\BioUrja Renewables\\EMTS REPORTS\\2023"
 USERID = "biorins13" 
 PASSWORD = "May2023@@" 
@@ -32,6 +31,12 @@ current_month = current_datetime.strftime("%B")
 logfile = os.getcwd()+'\\logs\\' + JOBNAME+"_"+str(today)+'.txt' 
 if os.path.exists(logfile):
             os.remove(logfile)
+
+files=os.listdir(download_path)
+# removing existing files 
+for file in files :
+    if os.path.isfile(download_path+'\\'+file):
+                os.remove(download_path+'\\'+file)
 logging.basicConfig( 
     level=logging.INFO, 
     force= True, 
@@ -92,6 +97,7 @@ def file_extraction(time_stamp,zipname,destination_path):
             shutil.copy(file,destination_path)
     os.remove(zip_file)
     os.remove(file)
+
 
 def loc_change_for_zip(time_stamp,zipname,destination_path):
     for filename in os.listdir(download_path):
