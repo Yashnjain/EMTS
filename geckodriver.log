@@ -3793,3 +3793,62 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
 1688043395606	Marionette	INFO	Stopped listening on port 54492
 Dynamically enable window occlusion 1
+1688368911524	geckodriver	INFO	Listening on 127.0.0.1:63927
+1688368914615	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "63928" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileHIcgE3"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1688368915418	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1688368915424	Marionette	INFO	Listening on port 63935
+WebDriver BiDi listening on ws://127.0.0.1:63928
+1688368916046	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:63928/devtools/browser/9f32dadb-e0fa-4484-875b-66381016c2c9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1688369078401	geckodriver	INFO	Listening on 127.0.0.1:64063
+1688369081474	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64064" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileXgRVFE"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1688369081857	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1688369081862	Marionette	INFO	Listening on port 64070
+WebDriver BiDi listening on ws://127.0.0.1:64064
+1688369082117	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64064/devtools/browser/5406f1cc-d0ed-480b-877a-2a6c782c97d8
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1688369476848	geckodriver	INFO	Listening on 127.0.0.1:64267
+1688369479925	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64268" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilezOi0uw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1688369480363	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1688369480368	Marionette	INFO	Listening on port 64274
+WebDriver BiDi listening on ws://127.0.0.1:64268
+1688369480530	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64268/devtools/browser/05ab9d7f-195f-41f7-bd52-21c29cda0e6c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1688370196123	geckodriver	INFO	Listening on 127.0.0.1:64515
+1688370199192	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64516" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileU42jYp"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1688370199584	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1688370199588	Marionette	INFO	Listening on port 64522
+WebDriver BiDi listening on ws://127.0.0.1:64516
+1688370199785	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64516/devtools/browser/428ce8ad-b634-46c4-b45e-ed02174c08d3
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1688371060318	Marionette	INFO	Stopped listening on port 64522
+Dynamically enable window occlusion 1

@@ -94,7 +94,11 @@ def file_extraction(time_stamp,zipname,destination_path):
             df = pd.read_csv(old_filename)
             os.remove(old_filename)
             df.to_excel(file,index=False)
-            shutil.copy(file,destination_path)
+            try:
+                shutil.copy(file, destination_path)
+            except FileNotFoundError:
+                os.makedirs(destination_path, exist_ok=True)
+                shutil.copy(file, destination_path)
     os.remove(zip_file)
     os.remove(file)
 
