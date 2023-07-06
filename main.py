@@ -114,10 +114,10 @@ def loc_change_for_zip(time_stamp,zipname,destination_path):
         new_name = os.path.join(download_path,filename_without_zip +'_' + time_stamp+'.zip')
         os.rename(old_zipfile_name,new_name)
         try:
-            shutil.copy(file, destination_path)
+            shutil.copy(new_name, destination_path)
         except FileNotFoundError:
             os.makedirs(destination_path, exist_ok=True)
-            shutil.copy(file, destination_path)
+            shutil.copy(new_name, destination_path)
     os.remove(new_name)
 
     
@@ -401,7 +401,7 @@ if __name__ == "__main__":
         b = pd.DataFrame(excel_files[1]).to_excel('CompletedTrade.xlsx',index=False)
         bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
         logging.info("Driver quit")
-        multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + logfile
+        multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
                     mail_subject ='JOB SUCCESS - EMTS_DAILY_FILE_AUTOMATION',
@@ -415,7 +415,7 @@ if __name__ == "__main__":
         a = pd.DataFrame(excel_files[0]).to_excel('PendingTrade.xlsx',index=False)
         b = pd.DataFrame(excel_files[1]).to_excel('CompletedTrade.xlsx',index=False)
         logging.info("Driver quit")
-        multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + logfile
+        multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         bu_alerts.bulog(process_name=JOBNAME,status='failed',log=logfile,process_owner='Pakhi',table_name=" ")
         bu_alerts.send_mail(
