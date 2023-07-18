@@ -14,7 +14,6 @@ from datetime import date, datetime
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.firefox import GeckoDriverManager
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -61,7 +60,6 @@ def login(driver):
 
 def get_data(driver):
     try:
-        action = ActionChains(driver)
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "div.mycdx-row:nth-child(2) > div:nth-child(3) > a:nth-child(1)"))).click()
         time.sleep(1)
@@ -203,7 +201,6 @@ def download_file_pending_trades_details(driver, destination_path):
 
 def download_file_RIN_holdings(driver, destination_path):
     try:
-        action = ActionChains(driver)
         driver.get(download_file_RIN_holdings_url)
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
@@ -277,7 +274,6 @@ def download_file_completed_trades(driver, destination_path):
 
 def download_file_transaction_status(driver, destination_path):
     try:
-        action = ActionChains(driver)
         driver.get(download_file_transaction_status_url)
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
@@ -329,7 +325,6 @@ def download_file_transaction_status(driver, destination_path):
 
 def download_file_transaction_history(driver, destination_path):
     try:
-        action = ActionChains(driver)
         driver.get(download_file_transaction_history_url)
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
@@ -353,7 +348,6 @@ def download_file_transaction_history(driver, destination_path):
 
 def download_file_expired_trades(driver, destination_path):
     try:
-        action = ActionChains(driver)
         driver.get(download_file_expired_trades_url)
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
@@ -377,7 +371,6 @@ def download_file_expired_trades(driver, destination_path):
 
 def download_file_cancelled_trades(driver, destination_path):
     try:
-        action = ActionChains(driver)
         driver.get(download_file_cancelled_trades_url)
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
@@ -401,7 +394,6 @@ def download_file_cancelled_trades(driver, destination_path):
 
 def download_file_RIN_batches(driver, destination_path):
     try:
-        action = ActionChains(driver)
         driver.get(download_file_RIN_batches_url)
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
@@ -472,7 +464,7 @@ if __name__ == "__main__":
 
         download_file_RIN_batches_url = urls[9]
         
-        ####################### Uncommment for Testing #########################################
+        ####################### Uncommment for Testing ################################################################################################
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
         # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
@@ -503,7 +495,7 @@ if __name__ == "__main__":
         job_name ="BIO-PAD01_" +  job_name
         
         receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com"
-        ########################################################################################
+        ###############################################################################################################################################
         
         # BU_LOG entry(started) in PROCESS_LOG table
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
