@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import shutil
 import zipfile
@@ -15,7 +16,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-import sys
+from webdriver_manager.firefox import GeckoDriverManager
 
 def firefoxDriverLoader(): 
     try: 
@@ -28,7 +29,7 @@ def firefoxDriverLoader():
         profile.set_preference('pdfjs.disabled', True) 
         profile.set_preference('browser.helperApps.neverAsk.saveToDisk', ','.join(mime_types)) 
         profile.set_preference('browser.helperApps.neverAsk.openFile',','.join(mime_types)) 
-        driver = webdriver.Firefox(executable_path=os.getcwd()+'\\geckodriver.exe', firefox_binary=binary,firefox_profile = profile)  
+        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), firefox_binary=binary,firefox_profile = profile)  
         return driver 
     except Exception as e:
         print(f"Exception caught in firefoxDriverLoader method: {e}")
