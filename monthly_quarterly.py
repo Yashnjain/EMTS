@@ -16,6 +16,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.ui import  WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
+import sys
 
 
 def firefoxDriverLoader(): 
@@ -280,24 +281,26 @@ if __name__ == "__main__":
         warehouse = "BUIT_WH"
         # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
         destination_path = r"E:\\testingEnvironment\\J_local_drive\\RINS\\RINS Recon\\"
-        username = "biorins13"
-        password = "May2023@@"
-        job_name ="BIO-PAD01_" +  job_name
-        download_path = os.getcwd()+"\\download\\" 
-        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com"
+        # username = "biorins13"
+        # password = "May2023@@"
         
-        url_1 ='https://cdx.epa.gov/CDX/Login' 
-        download_file_monthly_transaction_history_url =  'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=31&subscriptionId=&abt=false'
+        # url_1 ='https://cdx.epa.gov/CDX/Login' 
+        # download_file_monthly_transaction_history_url =  'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=31&subscriptionId=&abt=false'
 
-        download_file_monthly_RIN_holdings_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=870&subscriptionId=&abt=false'
+        # download_file_monthly_RIN_holdings_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=870&subscriptionId=&abt=false'
 
-        download_file_RFS2_EMTS_RIN_transaction_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=215&subscriptionId=&abt=false'
+        # download_file_RFS2_EMTS_RIN_transaction_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=215&subscriptionId=&abt=false'
 
-        download_file_RFS_EMTS_activity_report_assigned_RINS_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=240&subscriptionId=&abt=false'
+        # download_file_RFS_EMTS_activity_report_assigned_RINS_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=240&subscriptionId=&abt=false'
 
-        download_file_RFS2_EMTS_activity_report_separated_RINS_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=250&subscriptionId=&abt=false'
+        # download_file_RFS2_EMTS_activity_report_separated_RINS_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=250&subscriptionId=&abt=false'
+
+        job_name ="BIO-PAD01_" +  job_name
+        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
+        bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
         
         ############################################################################################
+        download_path = os.getcwd()+"\\download\\" 
         today = date.today()
         current_datetime = datetime.now()
         current_year = current_datetime.year
@@ -354,6 +357,10 @@ if __name__ == "__main__":
                 )
 
     except Exception as e:
+        try:
+            driver.quit()
+        except:
+            pass
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         print(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -365,3 +372,4 @@ if __name__ == "__main__":
                             mail_subject=f"JOB FAILED - {job_name}",
                             mail_body=f"{e}",
                             attachment_location = logfile)
+        sys.exit(-1)

@@ -15,6 +15,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support import expected_conditions as EC
+import sys
 
 
 def firefoxDriverLoader():
@@ -469,32 +470,33 @@ if __name__ == "__main__":
         warehouse = "BUIT_WH"
         # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
         destination_path = r"E:\\testingEnvironment\\J_local_drive\\RINS\\RINS Recon\\"
-        username = "biorins13"
-        password = "May2023@@"
+        # username = "biorins13"
+        # password = "May2023@@"
         
-        url_1 = 'https://cdx.epa.gov/CDX/Login'
+        # url_1 = 'https://cdx.epa.gov/CDX/Login'
         
-        download_file_pending_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=10&subscriptionId=&abt=false'
+        # download_file_pending_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=10&subscriptionId=&abt=false'
 
-        download_file_pending_trades_details_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=11&subscriptionId=&abt=false'
+        # download_file_pending_trades_details_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=11&subscriptionId=&abt=false'
 
-        download_file_RIN_holdings_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=20&subscriptionId=&abt=false'
+        # download_file_RIN_holdings_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=20&subscriptionId=&abt=false'
 
-        download_file_completed_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=50&subscriptionId=&abt=false'
+        # download_file_completed_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=50&subscriptionId=&abt=false'
 
-        download_file_transaction_status_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=430&subscriptionId=&abt=false'
+        # download_file_transaction_status_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=430&subscriptionId=&abt=false'
 
-        download_file_transaction_history_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=30&subscriptionId=&abt=false'
+        # download_file_transaction_history_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=30&subscriptionId=&abt=false'
 
-        download_file_expired_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=40&subscriptionId=&abt=false'
+        # download_file_expired_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=40&subscriptionId=&abt=false'
 
-        download_file_cancelled_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=370&subscriptionId=&abt=false'
+        # download_file_cancelled_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=370&subscriptionId=&abt=false'
 
-        download_file_RIN_batches_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=380&subscriptionId=&abt=false'
+        # download_file_RIN_batches_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=380&subscriptionId=&abt=false'
         
         job_name ="BIO-PAD01_" +  job_name
         
-        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com"
+        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
+        bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
         ###############################################################################################################################################
         
         # BU_LOG entry(started) in PROCESS_LOG table
@@ -576,7 +578,10 @@ if __name__ == "__main__":
         os.remove(f"{os.getcwd()}"+"\\PendingTrade.xlsx")
         os.remove(f"{os.getcwd()}"+"\\CompletedTrade.xlsx")
     except Exception as e:
-        driver.quit()
+        try:
+            driver.quit()
+        except:
+            pass
         a = pd.DataFrame(excel_files[0]).to_excel(
             'PendingTrade.xlsx', index=False)
         b = pd.DataFrame(excel_files[1]).to_excel(
@@ -597,3 +602,4 @@ if __name__ == "__main__":
             mail_subject=f"JOB FAILED - {job_name}",
             mail_body=f"{e}",
             multiple_attachment_list=multiple_attachment_list)
+        sys.exit(-1)

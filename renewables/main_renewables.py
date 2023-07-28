@@ -15,7 +15,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-
+import sys
 
 def firefoxDriverLoader(): 
     try: 
@@ -368,14 +368,16 @@ if __name__ == "__main__":
         ###################### Uncomment for Testing ###############################################
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
-        base_url ="https://emts.epa.gov/emts/documentlist/viewhistory.html?"
-        source_url= "https://cdx.epa.gov/CDX/Login"
+        # base_url ="https://emts.epa.gov/emts/documentlist/viewhistory.html?"
+        # source_url= "https://cdx.epa.gov/CDX/Login"
         job_name =  "BIO_PAD01_" + job_name
-        receiver_email = "amanullah.khan@biourja.com,imam.khan@biourja.com,yashn.jain@biourja.com" 
-        destination_path =root_loc
+        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
+        bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
+        root_loc = r"E:\testingEnvironment\J_local_drive\RINS\BioUrja Renewables\EMTS REPORTS"
         ##########################################################################################
     
     
+        destination_path =root_loc
         download_path = os.getcwd()+"\\temp_download_renewables\\" 
         firefox_path = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
         
@@ -442,7 +444,10 @@ if __name__ == "__main__":
                     attachment_location = logfile
                 )
     except Exception as e:
-        driver.quit() 
+        try:
+            driver.quit()
+        except:
+            pass
         logging.info(f'Error occurred in {job_name} {e}')
         # BU_LOG entry(Failed) in PROCESS_LOG table
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -454,3 +459,4 @@ if __name__ == "__main__":
                             mail_subject=f"JOB FAILED - {job_name}",
                             mail_body=f"{e}",
                             attachment_location = logfile)
+        sys.exit(-1)

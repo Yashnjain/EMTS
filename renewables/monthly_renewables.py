@@ -15,6 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+import sys
 
 
 def firefoxDriverLoader():
@@ -329,13 +330,15 @@ if __name__ == "__main__":
         ###################### Uncomment for Testing ###############################################
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
-        base_url ="https://emts.epa.gov/emts/documentlist/viewhistory.html?"
-        source_url= "https://cdx.epa.gov/CDX/Login"
+        # base_url ="https://emts.epa.gov/emts/documentlist/viewhistory.html?"
+        # source_url= "https://cdx.epa.gov/CDX/Login"
         job_name =  "BIO_PAD01_" + job_name
-        receiver_email = "amanullah.khan@biourja.com,imam.khan@biourja.com,yashn.jain@biourja.com" 
-        destination_path =root_loc
+        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
+        bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
+        root_loc = r"E:\testingEnvironment\J_local_drive\RINS\BioUrja Renewables\EMTS REPORTS"
         ##########################################################################################
         
+        destination_path =root_loc
         download_path = os.getcwd()+"\\download_renewables\\" 
 
         firefox_path = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
@@ -381,7 +384,10 @@ if __name__ == "__main__":
         logging.info("Download started waiting for it to complete RFS2EMTSRINGenerationCSV/XMLReport")
         download_file_RFS2EMTSRINTransactionCSV_XMLReport(driver,destination_path)
         logging.info("CLosing Driver")
-        driver.quit()
+        try:
+            driver.quit()
+        except:
+            pass
         
         # BU_LOG entry(completed) in PROCESS_LOG table
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -389,7 +395,7 @@ if __name__ == "__main__":
         bu_alerts.bulog(process_name=job_name, table_name=table_name, status='COMPLETED',
                         process_owner=owner, row_count=0, log=log_json, database=database, warehouse=warehouse)
         
-        logging.info("Driver quit")
+
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
                     mail_subject ='JOB SUCCESS - {job_name}',
@@ -397,7 +403,10 @@ if __name__ == "__main__":
                     attachment_location = logfile
                 )
     except Exception as e:
-        
+        try:
+            driver.quit()
+        except:
+            pass
         logging.info(f'Error occurred in {job_name} {e}')
         # BU_LOG entry(failed) in PROCESS_LOG table
         
@@ -411,4 +420,5 @@ if __name__ == "__main__":
                             mail_subject=f"JOB FAILED - {job_name}",
                             mail_body=f"{e}",
                             attachment_location = logfile)
+        sys.exit(-1)
    
