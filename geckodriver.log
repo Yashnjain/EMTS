@@ -3852,3 +3852,47 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
 1688371060318	Marionette	INFO	Stopped listening on port 64522
 Dynamically enable window occlusion 1
+1689596024124	geckodriver	INFO	Listening on 127.0.0.1:52077
+1689596027226	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "52078" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofilevij9is"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1689596028113	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1689596028120	Marionette	INFO	Listening on port 52088
+WebDriver BiDi listening on ws://127.0.0.1:52078
+1689596028331	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52078/devtools/browser/174bfca6-7cc3-4f4e-93c1-d937ef10b327
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+1689601820739	geckodriver	INFO	Listening on 127.0.0.1:53858
+1689601823827	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "53859" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileceFJ7V"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1689601824514	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1689601824520	Marionette	INFO	Listening on port 53864
+WebDriver BiDi listening on ws://127.0.0.1:53859
+1689601824683	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53859/devtools/browser/e21cabc9-2075-4cb3-8ef4-1e4f6e4302dc
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1689602216027	Marionette	INFO	Stopped listening on port 53864
+Dynamically enable window occlusion 1
+1690788853020	geckodriver	INFO	Listening on 127.0.0.1:64522
+1690788856120	mozrunner::runner	INFO	Running command: "C:\\\\Program Files\\\\Mozilla Firefox\\\\Firefox.exe" "--marionette" "--remote-debugging-port" "64523" "-no-remote" "-profile" "C:\\Users\\PAKHI~1.LAA\\AppData\\Local\\Temp\\rust_mozprofileZ9Pt91"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1690788857026	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1690788857163	Marionette	INFO	Listening on port 64529
+WebDriver BiDi listening on ws://127.0.0.1:64523
+1690788857712	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64523/devtools/browser/839732f4-0538-477e-9540-ec73256eef9a
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
