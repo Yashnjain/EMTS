@@ -2,7 +2,7 @@ import logging
 import os, sys ,zipfile
 import shutil
 import time 
-from datetime import date, datetime 
+from datetime import date, datetime ,timedelta
 import numpy as np 
 import bu_alerts 
 import pandas as pd 
@@ -24,7 +24,7 @@ JOBNAME = "EMTS_DAILY_FILE_AUTOMATION_RENEWABLES"
 URL ='https://cdx.epa.gov/CDX/Login' 
 FIREFOX_PATH = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
 today = date.today()
-current_datetime = datetime.now()
+current_datetime = datetime.now() - timedelta(1)
 current_year = current_datetime.year
 current_month = current_datetime.strftime("%B")
 
