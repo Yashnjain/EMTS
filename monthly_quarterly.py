@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from datetime import date, datetime
 from selenium.webdriver.common.by import By
+from datetime import date, datetime , timedelta
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.ui import  WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
@@ -29,7 +29,7 @@ def firefoxDriverLoader():
         profile.set_preference('pdfjs.disabled', True) 
         profile.set_preference('browser.helperApps.neverAsk.saveToDisk', ','.join(mime_types)) 
         profile.set_preference('browser.helperApps.neverAsk.openFile',','.join(mime_types)) 
-        driver = webdriver.Firefox(executable_pathh=GeckoDriverManager().install(),firefox_profile = profile)  
+        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(),firefox_profile = profile)  
         return driver 
     except Exception as e:
         logging.error('Exception caught during firefoxDriverLoader() : {}'.format(str(e)))
@@ -84,7 +84,11 @@ def file_extraction(time_stamp,zipname,destination_path):
                 else:
                     os.remove(old_filename)
                     df.to_excel(file,index=False)
-                    shutil.copy(file,destination_path)
+                    try:
+                        shutil.copy(file, destination_path)
+                    except FileNotFoundError:
+                        os.makedirs(destination_path, exist_ok=True)
+                        shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -103,7 +107,11 @@ def file_extraction_pdf(time_stamp,zipname,destination_path):
         for filename in os.listdir(extract_dir):
             if filename.endswith('.pdf'):
                 file = os.path.join(extract_dir,filename)
-                shutil.copy(file,destination_path)
+                try:
+                    shutil.copy(file, destination_path)
+                except FileNotFoundError:
+                    os.makedirs(destination_path, exist_ok=True)
+                    shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -120,7 +128,11 @@ def loc_change_for_zip(time_stamp,zipname,destination_path):
             old_zipfile_name = download_path + filename
             new_name = os.path.join(download_path,filename_without_zip +'_' + time_stamp+'.zip')
             os.rename(old_zipfile_name,new_name)
-            shutil.copy(new_name,destination_path)
+            try:
+                shutil.copy(new_name, destination_path)
+            except FileNotFoundError:
+                os.makedirs(destination_path, exist_ok=True)
+                shutil.copy(new_name, destination_path)
         os.remove(new_name)
     except Exception as e:
         logging.error('Exception caught during loc_change_for_zip() : {}'.format(str(e)))
@@ -302,7 +314,7 @@ if __name__ == "__main__":
         ############################################################################################
         download_path = os.getcwd()+"\\download\\" 
         today = date.today()
-        current_datetime = datetime.now()
+        current_datetime = datetime.now() -timedelta(1)
         current_year = current_datetime.year
         current_month = current_datetime.strftime("%B")
         files=os.listdir(download_path)

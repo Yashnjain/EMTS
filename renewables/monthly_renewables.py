@@ -9,14 +9,14 @@ import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from datetime import date, datetime
 from bu_config import config as buconfig
 from selenium.webdriver.common.by import By
+from datetime import date, datetime , timedelta
 from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from webdriver_manager.firefox import GeckoDriverManager
 
 
 def firefoxDriverLoader():
@@ -85,7 +85,11 @@ def file_extraction(time_stamp,zipname,destination_path):
                 else:
                     os.remove(old_filename)
                     df.to_excel(file,index=False)
-                    shutil.copy(file,destination_path)
+                try:
+                    shutil.copy(file, destination_path)
+                except FileNotFoundError:
+                    os.makedirs(destination_path, exist_ok=True)
+                    shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -103,7 +107,11 @@ def file_extraction_pdf(time_stamp,zipname,destination_path):
         for filename in os.listdir(extract_dir):
             if filename.endswith('.pdf'):
                 file = os.path.join(extract_dir,filename)
-                shutil.copy(file,destination_path)
+                try:
+                    shutil.copy(file, destination_path)
+                except FileNotFoundError:
+                    os.makedirs(destination_path, exist_ok=True)
+                    shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -343,12 +351,12 @@ if __name__ == "__main__":
 
         firefox_path = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
         today = date.today()
-        current_datetime = datetime.now()
+        current_datetime = datetime.now() -timedelta(1)
         current_year = current_datetime.year
         current_month = current_datetime.strftime("%B")
 
-        if os.path.exists(logfile):
-                    os.remove(logfile)
+        # if os.path.exists(logfile):
+        #             os.remove(logfile)
         files=os.listdir(download_path)
         # removing existing files 
         for file in files :
@@ -398,7 +406,7 @@ if __name__ == "__main__":
 
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
-                    mail_subject ='JOB SUCCESS - {job_name}',
+                    mail_subject =f'JOB SUCCESS - {job_name}',
                     mail_body = f'{job_name} completed successfully, Attached logs',
                     attachment_location = logfile
                 )
