@@ -9,14 +9,14 @@ import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from datetime import date, datetime
 from bu_config import config as buconfig
 from selenium.webdriver.common.by import By
+from datetime import date, datetime , timedelta
 from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.action_chains import ActionChains 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from webdriver_manager.firefox import GeckoDriverManager
 
 
 def firefoxDriverLoader():
@@ -351,7 +351,7 @@ if __name__ == "__main__":
 
         firefox_path = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
         today = date.today()
-        current_datetime = datetime.now()
+        current_datetime = datetime.now() -timedelta(1)
         current_year = current_datetime.year
         current_month = current_datetime.strftime("%B")
 
