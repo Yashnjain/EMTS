@@ -99,7 +99,11 @@ def loc_change_for_zip(time_stamp,destination_path):
             old_zipfile_name = download_path + filename
             new_name = os.path.join(download_path,filename_without_zip +'_' + time_stamp+'.zip')
             os.rename(old_zipfile_name,new_name)
-            shutil.copy(new_name,destination_path)
+            try:
+                shutil.copy(new_name, destination_path)
+            except FileNotFoundError:
+                os.makedirs(destination_path, exist_ok=True)
+                shutil.copy(new_name, destination_path)
         os.remove(new_name)
     except Exception as e:
         print(f"Exception caught in loc_change_for_zip: {e}")
@@ -445,10 +449,7 @@ if __name__ == "__main__":
                     attachment_location = logfile
                 )
     except Exception as e:
-        try:
-            driver.quit()
-        except:
-            pass
+        
         logging.info(f'Error occurred in {job_name} {e}')
         # BU_LOG entry(Failed) in PROCESS_LOG table
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -461,3 +462,8 @@ if __name__ == "__main__":
                             mail_body=f"{e}",
                             attachment_location = logfile)
         sys.exit(-1)
+    finally:
+        try:
+            driver.quit()
+        except:
+            pass

@@ -85,7 +85,11 @@ def file_extraction(time_stamp,zipname,destination_path):
                 else:
                     os.remove(old_filename)
                     df.to_excel(file,index=False)
-                    shutil.copy(file,destination_path)
+                try:
+                    shutil.copy(file, destination_path)
+                except FileNotFoundError:
+                    os.makedirs(destination_path, exist_ok=True)
+                    shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -103,7 +107,11 @@ def file_extraction_pdf(time_stamp,zipname,destination_path):
         for filename in os.listdir(extract_dir):
             if filename.endswith('.pdf'):
                 file = os.path.join(extract_dir,filename)
-                shutil.copy(file,destination_path)
+                try:
+                    shutil.copy(file, destination_path)
+                except FileNotFoundError:
+                    os.makedirs(destination_path, exist_ok=True)
+                    shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -347,8 +355,8 @@ if __name__ == "__main__":
         current_year = current_datetime.year
         current_month = current_datetime.strftime("%B")
 
-        if os.path.exists(logfile):
-                    os.remove(logfile)
+        # if os.path.exists(logfile):
+        #             os.remove(logfile)
         files=os.listdir(download_path)
         # removing existing files 
         for file in files :
@@ -384,10 +392,7 @@ if __name__ == "__main__":
         logging.info("Download started waiting for it to complete RFS2EMTSRINGenerationCSV/XMLReport")
         download_file_RFS2EMTSRINTransactionCSV_XMLReport(driver,destination_path)
         logging.info("CLosing Driver")
-        try:
-            driver.quit()
-        except:
-            pass
+        
         
         # BU_LOG entry(completed) in PROCESS_LOG table
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -398,15 +403,11 @@ if __name__ == "__main__":
 
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
-                    mail_subject ='JOB SUCCESS - {job_name}',
+                    mail_subject =f'JOB SUCCESS - {job_name}',
                     mail_body = f'{job_name} completed successfully, Attached logs',
                     attachment_location = logfile
                 )
     except Exception as e:
-        try:
-            driver.quit()
-        except:
-            pass
         logging.info(f'Error occurred in {job_name} {e}')
         # BU_LOG entry(failed) in PROCESS_LOG table
         
@@ -421,4 +422,9 @@ if __name__ == "__main__":
                             mail_body=f"{e}",
                             attachment_location = logfile)
         sys.exit(-1)
+    finally:
+        try:
+            driver.quit()
+        except:
+            pass
    

@@ -29,7 +29,7 @@ def firefoxDriverLoader():
         profile.set_preference('pdfjs.disabled', True) 
         profile.set_preference('browser.helperApps.neverAsk.saveToDisk', ','.join(mime_types)) 
         profile.set_preference('browser.helperApps.neverAsk.openFile',','.join(mime_types)) 
-        driver = webdriver.Firefox(executable_pathh=GeckoDriverManager().install(),firefox_profile = profile)  
+        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(),firefox_profile = profile)  
         return driver 
     except Exception as e:
         logging.error('Exception caught during firefoxDriverLoader() : {}'.format(str(e)))
@@ -84,7 +84,11 @@ def file_extraction(time_stamp,zipname,destination_path):
                 else:
                     os.remove(old_filename)
                     df.to_excel(file,index=False)
-                    shutil.copy(file,destination_path)
+                    try:
+                        shutil.copy(file, destination_path)
+                    except FileNotFoundError:
+                        os.makedirs(destination_path, exist_ok=True)
+                        shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -103,7 +107,11 @@ def file_extraction_pdf(time_stamp,zipname,destination_path):
         for filename in os.listdir(extract_dir):
             if filename.endswith('.pdf'):
                 file = os.path.join(extract_dir,filename)
-                shutil.copy(file,destination_path)
+                try:
+                    shutil.copy(file, destination_path)
+                except FileNotFoundError:
+                    os.makedirs(destination_path, exist_ok=True)
+                    shutil.copy(file, destination_path)
         os.remove(zip_file)
         os.remove(file)
     except Exception as e:
@@ -120,7 +128,11 @@ def loc_change_for_zip(time_stamp,zipname,destination_path):
             old_zipfile_name = download_path + filename
             new_name = os.path.join(download_path,filename_without_zip +'_' + time_stamp+'.zip')
             os.rename(old_zipfile_name,new_name)
-            shutil.copy(new_name,destination_path)
+            try:
+                shutil.copy(new_name, destination_path)
+            except FileNotFoundError:
+                os.makedirs(destination_path, exist_ok=True)
+                shutil.copy(new_name, destination_path)
         os.remove(new_name)
     except Exception as e:
         logging.error('Exception caught during loc_change_for_zip() : {}'.format(str(e)))
@@ -357,10 +369,6 @@ if __name__ == "__main__":
                 )
 
     except Exception as e:
-        try:
-            driver.quit()
-        except:
-            pass
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         print(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -373,3 +381,8 @@ if __name__ == "__main__":
                             mail_body=f"{e}",
                             attachment_location = logfile)
         sys.exit(-1)
+    finally:
+        try:
+            driver.quit()
+        except:
+            pass

@@ -578,10 +578,7 @@ if __name__ == "__main__":
         os.remove(f"{os.getcwd()}"+"\\PendingTrade.xlsx")
         os.remove(f"{os.getcwd()}"+"\\CompletedTrade.xlsx")
     except Exception as e:
-        try:
-            driver.quit()
-        except:
-            pass
+
         a = pd.DataFrame(excel_files[0]).to_excel(
             'PendingTrade.xlsx', index=False)
         b = pd.DataFrame(excel_files[1]).to_excel(
@@ -603,3 +600,8 @@ if __name__ == "__main__":
             mail_body=f"{e}",
             multiple_attachment_list=multiple_attachment_list)
         sys.exit(-1)
+    finally:
+        try:
+            driver.quit()
+        except:
+            pass
