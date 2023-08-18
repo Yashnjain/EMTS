@@ -105,6 +105,7 @@ def file_extraction(time_stamp,zipname,destination_path):
         file_path = os.path.join(destination_path, fi)
         excel_data = pd.read_excel(file_path)
         excel_files.append(excel_data)
+        return fi
 
 
 def loc_change_for_zip(time_stamp,zipname,destination_path):
@@ -136,7 +137,7 @@ def download_file_pendingTrades(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         zipname = "Pending Trades.zip"
         destination_path = destination_path + "PendingTrades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
-        file_extraction(time_stamp,zipname,destination_path)
+        name_of_file1 = file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
@@ -158,6 +159,7 @@ def download_file_pendingTrades(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")  
         time_stamp = time_stamp.replace("/",".")
         loc_change_for_zip(time_stamp,zipname,destination_path)
+        return name_of_file1
         
     except Exception as e: 
         raise e
@@ -217,7 +219,7 @@ def download_file_CompletedTrades(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         zipname = "Completed Trades.zip"
         destination_path = destination_path + "Completed Trades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
-        file_extraction(time_stamp,zipname,destination_path)
+        name_of_file2=file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")  
@@ -239,6 +241,7 @@ def download_file_CompletedTrades(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")  
         time_stamp = time_stamp.replace("/",".")
         loc_change_for_zip(time_stamp,zipname,destination_path)
+        return name_of_file2
     except Exception as e: 
         raise e
     
@@ -378,13 +381,13 @@ if __name__ == "__main__":
         logging.info("Login Successfull, now getting data from website") 
         get_data(driver) 
         logging.info("Download started waiting for it to complete for pendingtrades") 
-        download_file_pendingTrades(driver,destination_path) 
+        file1 = download_file_pendingTrades(driver,destination_path) 
         logging.info("Download started waiting for it to complete for pending trade details")
         download_file_pendingTradesDetails(driver,destination_path)
         logging.info("Download started waiting for it to complete Cancelled Trades")
         download_file_CancelledTrades(driver,destination_path)
         logging.info("Download started waiting for it to complete completed Trades")
-        download_file_CompletedTrades(driver,destination_path)
+        file2 = download_file_CompletedTrades(driver,destination_path)
         logging.info("Download started waiting for it to complete Transaction status")
         download_file_TransactionStaus(driver,destination_path)
         logging.info("Download started waiting for it to complete Tansaction History")
@@ -397,11 +400,11 @@ if __name__ == "__main__":
         download_file_RIN_Batches(driver,destination_path)
         logging.info("CLosing Driver")
         driver.quit() 
-        a = pd.DataFrame(excel_files[0]).to_excel('PendingTrade.xlsx',index=False)
-        b = pd.DataFrame(excel_files[1]).to_excel('CompletedTrade.xlsx',index=False)
+        a = pd.DataFrame(excel_files[0]).to_excel(file1,index=False)
+        b = pd.DataFrame(excel_files[1]).to_excel(file2,index=False)
         bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
         logging.info("Driver quit")
-        multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
+        multiple_attachment_list = [f"{os.getcwd()}"+'\\'+file1]+[f"{os.getcwd()}"+'\\'+file2] + [f'{logfile}']
         bu_alerts.send_mail(
                     receiver_email = receiver_email,
                     mail_subject ='JOB SUCCESS - EMTS_DAILY_FILE_AUTOMATION',
@@ -412,8 +415,8 @@ if __name__ == "__main__":
         os.remove(f"{os.getcwd()}"+"\\CompletedTrade.xlsx")
     except Exception as e:
         driver.quit() 
-        a = pd.DataFrame(excel_files[0]).to_excel('PendingTrade.xlsx',index=False)
-        b = pd.DataFrame(excel_files[1]).to_excel('CompletedTrade.xlsx',index=False)
+        a = pd.DataFrame(excel_files[0]).to_excel(f'{file1}.xlsx',index=False)
+        b = pd.DataFrame(excel_files[1]).to_excel(f'{file2}.xlsx',index=False)
         logging.info("Driver quit")
         multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
