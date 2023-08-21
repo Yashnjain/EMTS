@@ -2,3 +2,6 @@ temp_download/
 logs/
 geckodriver.exe
 geckodriver.log
+download/
+*.csv
+*.xlsx

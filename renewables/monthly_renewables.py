@@ -2,11 +2,19 @@ import os
 import sys
 import time
 import shutil
+<<<<<<< HEAD
 import zipfile
 import logging
 import bu_alerts
 import numpy as np
 import pandas as pd
+=======
+import time 
+from datetime import date, datetime ,timedelta
+import numpy as np 
+import bu_alerts 
+import pandas as pd 
+>>>>>>> main
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from bu_config import config as buconfig
@@ -18,6 +26,21 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
+<<<<<<< HEAD
+=======
+receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com"
+download_path = os.getcwd()+"\\download_renewables\\" 
+destination_path ="J:\RINS\BioUrja Renewables\EMTS REPORTS\\2023"
+USERID = "biorins13" 
+PASSWORD = "July2023@" 
+JOBNAME = "EMTS_MONTHLY_FILE_AUTOMATION_RENEWABLES" 
+URL ='https://cdx.epa.gov/CDX/Login' 
+FIREFOX_PATH = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
+today = date.today()
+current_datetime = datetime.now() - timedelta(1)
+current_year = current_datetime.year
+current_month = current_datetime.strftime("%B")
+>>>>>>> main
 
 def firefoxDriverLoader():
     try: 
@@ -30,6 +53,7 @@ def firefoxDriverLoader():
         profile.set_preference('pdfjs.disabled', True) 
         profile.set_preference('browser.helperApps.neverAsk.saveToDisk', ','.join(mime_types)) 
         profile.set_preference('browser.helperApps.neverAsk.openFile',','.join(mime_types)) 
+<<<<<<< HEAD
         driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), firefox_binary=binary,firefox_profile = profile)
         return driver
     except Exception as e:
@@ -39,6 +63,14 @@ def firefoxDriverLoader():
 
 
 def login(driver):
+=======
+        driver = webdriver.Firefox(executable_path=os.getcwd()+'\\geckodriver.exe', firefox_binary=binary,firefox_profile = profile)      
+        return driver 
+    except Exception as e: 
+        raise e 
+   
+def login(driver): 
+>>>>>>> main
     try: 
         driver.get(source_url) 
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#LoginUserId"))).send_keys(user_id) 

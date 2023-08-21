@@ -2,8 +2,14 @@ import os
 import sys
 import time
 import shutil
+<<<<<<< HEAD
 import zipfile
 import logging 
+=======
+import time 
+from datetime import date, datetime ,timedelta
+import numpy as np 
+>>>>>>> main
 import bu_alerts 
 import numpy as np 
 import pandas as pd 
@@ -18,6 +24,38 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
+<<<<<<< HEAD
+=======
+receiver_email = "indiapowerit@biourja.com" 
+download_path = os.getcwd()+"\\temp_download_renewables\\" 
+destination_path ="J:\\RINS\\BioUrja Renewables\\EMTS REPORTS\\2023"
+USERID = "biorins13" 
+PASSWORD = "July2023@" 
+JOBNAME = "EMTS_DAILY_FILE_AUTOMATION_RENEWABLES" 
+URL ='https://cdx.epa.gov/CDX/Login' 
+FIREFOX_PATH = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
+today = date.today()
+current_datetime = datetime.now() - timedelta(1)
+current_year = current_datetime.year
+current_month = current_datetime.strftime("%B")
+
+logfile = os.getcwd()+'\\logs\\' + JOBNAME+"_"+str(today)+'.txt' 
+if os.path.exists(logfile):
+            os.remove(logfile)
+
+files=os.listdir(download_path)
+# removing existing files 
+for file in files :
+    if os.path.isfile(download_path+'\\'+file):
+                os.remove(download_path+'\\'+file)
+logging.basicConfig( 
+    level=logging.INFO, 
+    force= True, 
+    format='%(asctime)s:%(levelname)s:%(name)s:%(message)s',
+    filename=logfile) 
+logging.warning('info added') 
+
+>>>>>>> main
 def firefoxDriverLoader(): 
     try: 
         mime_types=['application/pdf' ,'text/plain', 'application/vnd.ms-excel', 'test/csv', 'application/zip', 'application/csv', 'text/comma-separated-values','application/download','application/octet-stream' ,'binary/octet-stream' ,'application/binary' ,'application/x-unknown'] 
