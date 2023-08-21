@@ -552,7 +552,7 @@ if __name__ == "__main__":
         driver.quit() 
         a = pd.DataFrame(excel_files[0]).to_excel('PendingTrade.xlsx',index=False)
         b = pd.DataFrame(excel_files[1]).to_excel('CompletedTrade.xlsx',index=False)
-        bu_alerts.bulog(process_name=JOBNAME,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
+        bu_alerts.bulog(process_name=job_name,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
         logging.info("Driver quit")
         multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
         bu_alerts.send_mail(
