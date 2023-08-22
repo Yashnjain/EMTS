@@ -4150,3 +4150,20 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 1692709909786	Marionette	INFO	Stopped listening on port 58381
 Dynamically enable window occlusion 1
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1692710598188	geckodriver	INFO	Listening on 127.0.0.1:59466
+1692710601188	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Windows\\SystemTemp\\rust_mozprofile5x0INu"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692710601981	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1692710602137	Marionette	INFO	Listening on port 59476
+Read port: 59476
+1692710602534	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://cdx.epa.gov."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://emts.epa.gov."
+1692710907306	Marionette	INFO	Stopped listening on port 59476
+Dynamically enable window occlusion 1
+[Parent 15428, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
