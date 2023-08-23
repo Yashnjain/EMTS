@@ -341,9 +341,9 @@ if __name__ == "__main__":
         # base_url ="https://emts.epa.gov/emts/documentlist/viewhistory.html?"
         # source_url= "https://cdx.epa.gov/CDX/Login"
         job_name =  "BIO_PAD01_" + job_name
-        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
-        bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
-        root_loc = r"E:\testingEnvironment\J_local_drive\RINS\BioUrja Renewables\EMTS REPORTS"
+        # receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
+        # bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
+        # root_loc = r"E:\testingEnvironment\J_local_drive\RINS\BioUrja Renewables\EMTS REPORTS"
         ##########################################################################################
         
         destination_path =root_loc

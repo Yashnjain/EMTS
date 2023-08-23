@@ -18,18 +18,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 import sys
 
-receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com,deepesh.gupta@biourja.com,rahul.gupta@biourja.com"
-download_path = os.getcwd()+"\\download\\" 
-destination_path ="J:\RINS\RINS Recon\\"
-USERID = "biorins13" 
-PASSWORD = "July2023@" 
-JOBNAME = "EMTS_MONTHLY_FILE_AUTOMATION" 
-URL ='https://cdx.epa.gov/CDX/Login' 
-FIREFOX_PATH = r"C:\\Program Files\\Mozilla Firefox\\Firefox.exe"
-today = date.today()
-current_datetime = datetime.now() - timedelta(1)
-current_year = current_datetime.year
-current_month = current_datetime.strftime("%B")
+
 
 def firefoxDriverLoader(): 
     try: 
