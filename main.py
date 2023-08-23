@@ -101,12 +101,13 @@ def file_extraction(time_stamp, zipname, destination_path):
             file_path = os.path.join(destination_path, fi)
             excel_data = pd.read_excel(file_path)
             excel_files.append(excel_data)
+        return fi
     except Exception as e:
         logging.error(
             'Exception caught during execution file_extraction() : {}'.format(str(e)))
         print('Exception caught during execution file_extraction() : {}'.format(str(e)))
         raise e
-        return fi
+        
 
 
 def loc_change_for_zip(time_stamp, zipname, destination_path):
@@ -465,7 +466,7 @@ if __name__ == "__main__":
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
         # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
-        destination_path = r"E:\\testingEnvironment\\J_local_drive\\RINS\\RINS Recon\\"
+        destination_path = r"E:\testingEnvironment\J_local_drive\RINS\RINS Recon"+"\\"
         # username = "biorins13"
         # password = "May2023@@"
         
@@ -550,8 +551,8 @@ if __name__ == "__main__":
         download_file_RIN_batches(driver, destination_path)
         logging.info("CLosing Driver")
         driver.quit() 
-        a = pd.DataFrame(excel_files[0]).to_excel('PendingTrade.xlsx',index=False)
-        b = pd.DataFrame(excel_files[1]).to_excel('CompletedTrade.xlsx',index=False)
+        a = pd.DataFrame(excel_files[0]).to_excel(file1,index=False)
+        b = pd.DataFrame(excel_files[1]).to_excel(file2,index=False)
         bu_alerts.bulog(process_name=job_name,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
         logging.info("Driver quit")
         multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
@@ -561,15 +562,15 @@ if __name__ == "__main__":
             mail_body='EMTS_DAILY_FILE_AUTOMATION completed successfully, Attached logs',
             multiple_attachment_list=multiple_attachment_list
         )
-        os.remove(f"{os.getcwd()}"+"\\PendingTrade.xlsx")
-        os.remove(f"{os.getcwd()}"+"\\CompletedTrade.xlsx")
+        os.remove(f"{os.getcwd()}"+"\\"+file1)
+        os.remove(f"{os.getcwd()}"+"\\"+file2)
     except Exception as e:
         driver.quit() 
-        a = pd.DataFrame(excel_files[0]).to_excel(f'{file1}.xlsx',index=False)
-        b = pd.DataFrame(excel_files[1]).to_excel(f'{file2}.xlsx',index=False)
+        a = pd.DataFrame(excel_files[0]).to_excel(file1,index=False)
+        b = pd.DataFrame(excel_files[1]).to_excel(file2,index=False)
         logging.info("Driver quit")
-        multiple_attachment_list = [f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[
-            f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
+        multiple_attachment_list = [f"{os.getcwd()}"+"\\"+file1]+[
+            f"{os.getcwd()}"+"\\"+file2] + [f'{logfile}']
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
 
         # BU_LOG entry(Failed) in PROCESS_LOG table
