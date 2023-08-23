@@ -314,7 +314,7 @@ if __name__ == "__main__":
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
         # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
-        destination_path = r"E:\\testingEnvironment\\J_local_drive\\RINS\\RINS Recon\\"
+        # destination_path = r"E:\\testingEnvironment\\J_local_drive\\RINS\\RINS Recon\\"
         # username = "biorins13"
         # password = "May2023@@"
         
@@ -330,8 +330,8 @@ if __name__ == "__main__":
         # download_file_RFS2_EMTS_activity_report_separated_RINS_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=250&subscriptionId=&abt=false'
 
         job_name ="BIO-PAD01_" +  job_name
-        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
-        bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
+        # receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
+        # bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
         
         ############################################################################################
         download_path = os.getcwd()+"\\download\\" 

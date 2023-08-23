@@ -492,8 +492,8 @@ if __name__ == "__main__":
         
         job_name ="BIO-PAD01_" +  job_name
         
-        receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
-        bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
+        # receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
+        # bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
         ###############################################################################################################################################
         
         # BU_LOG entry(started) in PROCESS_LOG table
@@ -555,15 +555,15 @@ if __name__ == "__main__":
         b = pd.DataFrame(excel_files[1]).to_excel(file2,index=False)
         bu_alerts.bulog(process_name=job_name,status='Finished', log=logfile,process_owner='Pakhi',table_name=" ") 
         logging.info("Driver quit")
-        multiple_attachment_list =[f"{os.getcwd()}"+"\\PendingTrade.xlsx"]+[f"{os.getcwd()}"+"\\"+"CompletedTrade.xlsx"] + [f'{logfile}']
+        multiple_attachment_list =[f"{os.getcwd()}"+"\\"+file1]+[f"{os.getcwd()}"+"\\"+file2] + [f'{logfile}']
         bu_alerts.send_mail(
             receiver_email=receiver_email,
             mail_subject=f'JOB SUCCESS - {job_name}',
             mail_body='EMTS_DAILY_FILE_AUTOMATION completed successfully, Attached logs',
             multiple_attachment_list=multiple_attachment_list
         )
-        os.remove(f"{os.getcwd()}"+"\\"+file1)
-        os.remove(f"{os.getcwd()}"+"\\"+file2)
+        os.remove(f"{os.getcwd()}"+file1)
+        os.remove(f"{os.getcwd()}"+file2)
     except Exception as e:
         driver.quit() 
         a = pd.DataFrame(excel_files[0]).to_excel(file1,index=False)
