@@ -1,6 +1,5 @@
 import os
 import time 
-<<<<<<< HEAD
 import shutil
 import zipfile
 import logging
@@ -9,12 +8,6 @@ import bu_alerts
 import bu_config
 import numpy as np
 import pandas as pd
-=======
-from datetime import date, datetime ,timedelta
-import numpy as np 
-import bu_alerts 
-import pandas as pd 
->>>>>>> main
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -25,8 +18,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 import sys
 
-<<<<<<< HEAD
-=======
 receiver_email = "indiapowerit@biourja.com,itdevsupport@biourja.com,deepesh.gupta@biourja.com,rahul.gupta@biourja.com"
 download_path = os.getcwd()+"\\download\\" 
 destination_path ="J:\RINS\RINS Recon\\"
@@ -39,7 +30,6 @@ today = date.today()
 current_datetime = datetime.now() - timedelta(1)
 current_year = current_datetime.year
 current_month = current_datetime.strftime("%B")
->>>>>>> main
 
 def firefoxDriverLoader(): 
     try: 
