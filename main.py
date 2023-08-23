@@ -562,8 +562,8 @@ if __name__ == "__main__":
             mail_body='EMTS_DAILY_FILE_AUTOMATION completed successfully, Attached logs',
             multiple_attachment_list=multiple_attachment_list
         )
-        os.remove(f"{os.getcwd()}"+file1)
-        os.remove(f"{os.getcwd()}"+file2)
+        os.remove(f"{os.getcwd()}"+'\\'+file1)
+        os.remove(f"{os.getcwd()}"+'\\'+file2)
     except Exception as e:
         driver.quit() 
         a = pd.DataFrame(excel_files[0]).to_excel(file1,index=False)
