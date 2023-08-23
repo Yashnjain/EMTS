@@ -466,7 +466,7 @@ if __name__ == "__main__":
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
         # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
-        destination_path = r"E:\testingEnvironment\J_local_drive\RINS\RINS Recon"+"\\"
+        # destination_path = r"E:\testingEnvironment\J_local_drive\RINS\RINS Recon"+"\\"
         # username = "biorins13"
         # password = "May2023@@"
         
