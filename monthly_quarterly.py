@@ -355,7 +355,7 @@ if __name__ == "__main__":
         logging.info("CLosing Driver")
         driver.quit()
         logging.info("Driver quit")
-        
+        print("Prcoess Completed")
         # BU_LOG entry(completed) in PROCESS_LOG table
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
             job_name)+'","CURRENT_DATETIME": "'+str(datetime.now())+'","STATUS": "COMPLETED"}]'
