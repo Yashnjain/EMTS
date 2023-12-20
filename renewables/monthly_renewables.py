@@ -424,7 +424,12 @@ if __name__ == "__main__":
         sys.exit(-1)
     finally:
         try:
+            bu_alerts.send_mail(
+                            receiver_email= receiver_email,
+                            mail_subject=f"JOB FAILED - {job_name}",
+                            mail_body=f"{e}",
+                            attachment_location = logfile)
             driver.quit()
         except:
+            driver.quit()
             pass
-   
