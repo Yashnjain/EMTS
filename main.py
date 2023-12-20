@@ -504,7 +504,7 @@ if __name__ == "__main__":
         
         download_path = os.getcwd()+"\\temp_download\\"
         today = date.today()
-        current_datetime = datetime.now() -timedelta(1)
+        current_datetime = datetime.now() -timedelta(3)
         current_year = current_datetime.year
         current_month = current_datetime.strftime("%B")
         files = os.listdir(download_path)
@@ -581,12 +581,18 @@ if __name__ == "__main__":
         
         bu_alerts.send_mail(
             receiver_email=receiver_email,
-            mail_subject=f"JOB FAILED - {job_name}",
-            mail_body=f"{e}",
+            mail_subject=f"JOB Alert - {job_name}",
+            mail_body=f"The alert contains the completed and pending trade files; We must wait for the next scheduled run to access the other trading files.",              
             multiple_attachment_list=multiple_attachment_list)
         sys.exit(-1)
     finally:
         try:
+            bu_alerts.send_mail(
+            receiver_email=receiver_email,
+            mail_subject=f"JOB FAILED - {job_name}",
+            mail_body=f"{e}",
+            multiple_attachment_list=multiple_attachment_list)
             driver.quit()
         except:
+            driver.quit()
             pass
