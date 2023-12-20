@@ -97,7 +97,9 @@ def loc_change_for_zip(time_stamp,destination_path):
         for filename in os.listdir(download_path):
             filename_without_zip = filename.split('.zip')[0]
             old_zipfile_name = download_path + filename
+            time.sleep(5)
             new_name = os.path.join(download_path,filename_without_zip +'_' + time_stamp+'.zip')
+            time.sleep(5)
             os.rename(old_zipfile_name,new_name)
             try:
                 shutil.copy(new_name, destination_path)
@@ -464,6 +466,12 @@ if __name__ == "__main__":
         sys.exit(-1)
     finally:
         try:
+            bu_alerts.send_mail(
+                            receiver_email= receiver_email,
+                            mail_subject=f"JOB FAILED - {job_name}",
+                            mail_body=f"{e}",
+                            attachment_location = logfile)
             driver.quit()
         except:
+            driver.quit()
             pass
