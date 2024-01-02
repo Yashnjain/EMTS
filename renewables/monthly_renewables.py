@@ -148,7 +148,7 @@ def download_file_MonthlyTransactionHistory(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Monthly Transaction History.zip"
-        destination_path = destination_path + "\\Monthly Transaction History\\"  + "Test"
+        destination_path = destination_path + "\\Monthly Transaction History\\" + str(current_year)  + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
 
     except Exception as e:
@@ -171,7 +171,7 @@ def download_file_MonthlyRINHoldings(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Monthly RIN Holdings.zip"
-        destination_path = destination_path + "\\Monthly RIN Holdings\\"  + "Test"
+        destination_path = destination_path + "\\Monthly RIN Holdings\\" + str(current_year)  + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
 
     except Exception as e:
@@ -195,7 +195,7 @@ def download_file_MonthlyRINGeneration(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "Monthly RIN Generation.zip"
-        destination_path = destination_path + "\\Monthly RIN Generation\\Test"
+        destination_path = destination_path + "\\Monthly RIN Generation\\"+ str(current_year)  + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
 
     except Exception as e:
@@ -219,7 +219,7 @@ def download_file_RFS2EMTSActivityReportAssignedRINS(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "RFS2 EMTS Activity Report (Assigned RINS).zip"
-        destination_path = destination_path + "\\EMTS Activity Report (Assigned RINS)\\Test"
+        destination_path = destination_path + "\\EMTS Activity Report (Assigned RINS)\\"+ str(current_year)  + "\\" + "Test"
         file_extraction_pdf(time_stamp,zipname,destination_path)
 
     except Exception as e:
@@ -242,7 +242,7 @@ def download_file_RFS2EMTSActivityReportSeparatedRINS(driver,destination_path):
         time_stamp = li[0]+'_'+li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "RFS2 EMTS Activity Report (Separated RINS).zip"
-        destination_path = destination_path + "\\EMTS Activity Report (Separated RINS)\\Test"
+        destination_path = destination_path + "\\EMTS Activity Report (Separated RINS)\\"+ str(current_year)  + "\\" + "Test"
         file_extraction_pdf(time_stamp,zipname,destination_path)
 
     except Exception as e:
@@ -266,7 +266,7 @@ def download_file_RFS2EMTSRINGenerationCSV_XMLReport(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "RFS2 EMTS RIN Generation CSV_XML Report.zip"
-        destination_path = destination_path + "\\RFS2 EMTS RIN Generation CSV_XML Report\\Test"
+        destination_path = destination_path + "\\RFS2 EMTS RIN Generation CSV_XML Report\\"+ str(current_year)  + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
 
     except Exception as e:
@@ -290,7 +290,7 @@ def download_file_RFS2EMTSRINTransactionCSV_XMLReport(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "RFS2 EMTS RIN Transaction CSV_XML Report (Buy, Sell, Separate, Retire).zip"
-        destination_path = destination_path + "\\RFS2 EMTS RIN Transaction CSV_XML Report (Buy, Sell, Separate, Retire)\\Test"
+        destination_path = destination_path + "\\RFS2 EMTS RIN Transaction CSV_XML Report (Buy, Sell, Separate, Retire)\\"+ str(current_year)  + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
 
     except Exception as e:
