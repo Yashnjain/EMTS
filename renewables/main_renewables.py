@@ -127,7 +127,7 @@ def download_file_pendingTrades(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Pending Trades.zip"
-        destination_path = destination_path + "\\Pending Trades" + "\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Pending Trades" + str(current_year) + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click()
         time_stamp = li[0]+'_'+li[1]+li[2]
@@ -171,7 +171,7 @@ def download_file_pendingTradesDetails(driver,destination_path):
         time_stamp = time_stamp.replace(":",".")
         time_stamp = time_stamp.replace("/",".")
         zipname = "Pending Trade Details.zip"
-        destination_path = destination_path + "\\Pending Trade Details\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Pending Trade Details\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
     except Exception as e:
         print(f"Exception caught in download_file_pendingTradesDetails: {e}")
@@ -193,7 +193,7 @@ def download_file_CancelledTrades(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Cancelled Trades.zip"
-        destination_path = destination_path + "\\Cancelled Trades\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Cancelled Trades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
     except Exception as e:
         print(f"Exception caught in download_file_CancelledTrades: {e}")
@@ -215,7 +215,7 @@ def download_file_CompletedTrades(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Completed Trades.zip"
-        destination_path = destination_path + "\\Completed Trades\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Completed Trades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time_stamp = li[0]+'_'+li[1]+li[2]
@@ -260,7 +260,7 @@ def download_file_TransactionStatus(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Transaction Status.zip"
-        destination_path = destination_path + "\\Transaction Status\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Transaction Status\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         WebDriverWait(driver,90).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"tr.odd:nth-child(1) > td:nth-child(3) > form:nth-child(1) > input:nth-child(4)"))).click() 
         time_stamp = li[0]+'_'+li[1]+li[2]
@@ -305,7 +305,7 @@ def download_file_TransactionHistory(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Transaction History.zip"
-        destination_path = destination_path + "\\Transaction History\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Transaction History\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
         
     except Exception as e:
@@ -328,7 +328,7 @@ def download_file_ExpiredTrades(driver,destination_path):
         time_stamp = li[1]+li[2]
         time_stamp = time_stamp.replace(":",".")
         zipname = "Expired Trades.zip"
-        destination_path = destination_path + "\\Expired Trades\\" + current_month + "\\" + "Test"
+        destination_path = destination_path + "\\Expired Trades\\" + str(current_year) + "\\" + current_month + "\\" + "Test"
         file_extraction(time_stamp,zipname,destination_path)
     except Exception as e:
         print(f"Exception caught in download_file_ExpiredTrades: {e}")
