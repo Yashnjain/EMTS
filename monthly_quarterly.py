@@ -292,26 +292,7 @@ if __name__ == "__main__":
         ####################### Uncommment for Testing #############################################
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
-        # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
-        # destination_path = r"E:\\testingEnvironment\\J_local_drive\\RINS\\RINS Recon\\"
-        # username = "biorins13"
-        # password = "May2023@@"
-        
-        # url_1 ='https://cdx.epa.gov/CDX/Login' 
-        # download_file_monthly_transaction_history_url =  'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=31&subscriptionId=&abt=false'
-
-        # download_file_monthly_RIN_holdings_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=870&subscriptionId=&abt=false'
-
-        # download_file_RFS2_EMTS_RIN_transaction_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=215&subscriptionId=&abt=false'
-
-        # download_file_RFS_EMTS_activity_report_assigned_RINS_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=240&subscriptionId=&abt=false'
-
-        # download_file_RFS2_EMTS_activity_report_separated_RINS_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=250&subscriptionId=&abt=false'
-
         job_name ="BIO-PAD01_" +  job_name
-        # receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
-        # bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
-        
         ############################################################################################
         download_path = os.getcwd()+"\\download\\" 
         today = date.today()
@@ -368,8 +349,8 @@ if __name__ == "__main__":
                     mail_body = f'{job_name} completed successfully, Attached logs',
                     attachment_location = logfile
                 )
-
     except Exception as e:
+        driver.quit()
         logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         print(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -381,15 +362,5 @@ if __name__ == "__main__":
                             mail_subject=f"JOB FAILED - {job_name}",
                             mail_body=f"{e}",
                             attachment_location = logfile)
-        sys.exit(-1)
-     finally:
-        try:
-            bu_alerts.send_mail(
-                            receiver_email= receiver_email,
-                            mail_subject=f"JOB FAILED - {job_name}",
-                            mail_body=f"{e}",
-                            attachment_location = logfile)
-            driver.quit()
-        except:
-            driver.quit()
-            pass
+       
+        
