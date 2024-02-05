@@ -465,35 +465,8 @@ if __name__ == "__main__":
         ####################### Uncommment for Testing ################################################################################################
         database = "BUITDB_DEV"
         warehouse = "BUIT_WH"
-        # destination_path = r"\\biourja.local\biourja\India Sync\RINS\RINS Recon\\"
-        # destination_path = r"E:\testingEnvironment\J_local_drive\RINS\RINS Recon"+"\\"
-        # username = "biorins13"
-        # password = "May2023@@"
-        
-        # url_1 = 'https://cdx.epa.gov/CDX/Login'
-        
-        # download_file_pending_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=10&subscriptionId=&abt=false'
-
-        # download_file_pending_trades_details_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=11&subscriptionId=&abt=false'
-
-        # download_file_RIN_holdings_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=20&subscriptionId=&abt=false'
-
-        # download_file_completed_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=50&subscriptionId=&abt=false'
-
-        # download_file_transaction_status_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=430&subscriptionId=&abt=false'
-
-        # download_file_transaction_history_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=30&subscriptionId=&abt=false'
-
-        # download_file_expired_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=40&subscriptionId=&abt=false'
-
-        # download_file_cancelled_trades_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=370&subscriptionId=&abt=false'
-
-        # download_file_RIN_batches_url = 'https://emts.epa.gov/emts/documentlist/viewhistory.html?catalogId=380&subscriptionId=&abt=false'
-        
         job_name ="BIO-PAD01_" +  job_name
         
-        # receiver_email = "amanullah.khan@biourja.com,yashn.jain@biourja.com,imam.khan@biourja.com,yash.gupta@biourja.com,\
-        # bhavana.kaurav@biourja.com,bharat.pathak@biourja.com,deep.durugkar@biourja.com"
         ###############################################################################################################################################
         
         # BU_LOG entry(started) in PROCESS_LOG table
@@ -565,34 +538,30 @@ if __name__ == "__main__":
         os.remove(f"{os.getcwd()}"+'\\'+file1)
         os.remove(f"{os.getcwd()}"+'\\'+file2)
     except Exception as e:
-        driver.quit() 
-        a = pd.DataFrame(excel_files[0]).to_excel(file1,index=False)
-        b = pd.DataFrame(excel_files[1]).to_excel(file2,index=False)
-        logging.info("Driver quit")
-        multiple_attachment_list = [f"{os.getcwd()}"+"\\"+file1]+[
-            f"{os.getcwd()}"+"\\"+file2] + [f'{logfile}']
-        logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
-
-        # BU_LOG entry(Failed) in PROCESS_LOG table
-        log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
-            job_name)+'","CURRENT_DATETIME": "'+str(datetime.now())+'","STATUS": "FAILED"}]'
-        bu_alerts.bulog(process_name=job_name, table_name=table_name, status='FAILED',
-                        process_owner=owner, row_count=0, log=log_json, database=database, warehouse=warehouse)
-        
-        bu_alerts.send_mail(
-            receiver_email=receiver_email,
-            mail_subject=f"JOB Alert - {job_name}",
-            mail_body=f"The alert contains the completed and pending trade files; We must wait for the next scheduled run to access the other trading files.",              
-            multiple_attachment_list=multiple_attachment_list)
-        sys.exit(-1)
-    finally:
         try:
+            driver.quit() 
+            a = pd.DataFrame(excel_files[0]).to_excel(file1,index=False)
+            b = pd.DataFrame(excel_files[1]).to_excel(file2,index=False)
+            logging.info("Driver quit")
+            multiple_attachment_list = [f"{os.getcwd()}"+"\\"+file1]+[
+            f"{os.getcwd()}"+"\\"+file2] + [f'{logfile}']
+            logging.info(f'Error occurred in EMTS_DAILY_FILE_AUTOMATION {e}')
+
+            # BU_LOG entry(Failed) in PROCESS_LOG table
+            log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
+            job_name)+'","CURRENT_DATETIME": "'+str(datetime.now())+'","STATUS": "FAILED"}]'
+            bu_alerts.bulog(process_name=job_name, table_name=table_name, status='FAILED',
+                                process_owner=owner, row_count=0, log=log_json, database=database, warehouse=warehouse)
+                
             bu_alerts.send_mail(
-            receiver_email=receiver_email,
-            mail_subject=f"JOB FAILED - {job_name}",
-            mail_body=f"{e}",
-            multiple_attachment_list=multiple_attachment_list)
+                            receiver_email=receiver_email,
+                            mail_subject=f"JOB Alert - {job_name}",
+                            mail_body=f"The alert contains the completed and pending trade files; We must wait for the next scheduled run to access the other trading files.",              
+                            multiple_attachment_list=multiple_attachment_list)
             driver.quit()
-        except:
-            driver.quit()
-            pass
+        except Exception as e:
+            bu_alerts.send_mail(
+                            receiver_email=receiver_email,
+                            mail_subject=f"JOB FAILED - {job_name}",
+                            mail_body=f"{e}",
+                            multiple_attachment_list={logfile})
