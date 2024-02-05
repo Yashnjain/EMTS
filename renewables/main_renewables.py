@@ -451,7 +451,7 @@ if __name__ == "__main__":
                     attachment_location = logfile
                 )
     except Exception as e:
-        
+        driver.quit()
         logging.info(f'Error occurred in {job_name} {e}')
         # BU_LOG entry(Failed) in PROCESS_LOG table
         log_json = '[{"JOB_ID": "'+str(job_id)+'","JOB_NAME": "'+str(
@@ -463,15 +463,4 @@ if __name__ == "__main__":
                             mail_subject=f"JOB FAILED - {job_name}",
                             mail_body=f"{e}",
                             attachment_location = logfile)
-        sys.exit(-1)
-    finally:
-        try:
-            bu_alerts.send_mail(
-                            receiver_email= receiver_email,
-                            mail_subject=f"JOB FAILED - {job_name}",
-                            mail_body=f"{e}",
-                            attachment_location = logfile)
-            driver.quit()
-        except:
-            driver.quit()
-            pass
+       
